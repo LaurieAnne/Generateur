@@ -39,5 +39,20 @@ namespace Generateur
         {
             this.cmdAjAeroport.BackColor = Color.SkyBlue;
         }
+
+        private void cmdAjVehicule_MouseHover(object sender, EventArgs e)
+        {
+            this.cmdAjVehicule.BackColor = Color.SkyBlue;
+        }
+
+        private void cmdAjVehicule_MouseLeave(object sender, EventArgs e)
+        {
+            this.cmdAjVehicule.BackColor = Color.Transparent;
+        }
+
+        private void cmdAjVehicule_MouseEnter(object sender, EventArgs e)
+        {
+            this.cmdAjVehicule.BackColor = Color.SkyBlue;
+        }
     }
 }
