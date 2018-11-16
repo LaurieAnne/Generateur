@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Generateur
 {
-    class AvionObservateur
+    public class AvionObservateur : Vehicule
     {
+        public AvionObservateur(string p_nom, int p_KMH, int p_tempsMain) 
+            : base(p_nom, p_KMH, p_tempsMain, ConsoleColor.Blue)
+        {
+
+        }
     }
 }

@@ -8,5 +8,6 @@ namespace Generateur
 {
     class Usine
     {
+        
     }
 }
