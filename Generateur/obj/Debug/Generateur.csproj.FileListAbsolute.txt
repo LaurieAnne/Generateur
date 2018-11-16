@@ -1,0 +1,10 @@
+C:\Users\Laurie\Desktop\Generateur\Generateur\bin\Debug\Generateur.exe.config
+C:\Users\Laurie\Desktop\Generateur\Generateur\bin\Debug\Generateur.exe
+C:\Users\Laurie\Desktop\Generateur\Generateur\bin\Debug\Generateur.pdb
+C:\Users\Laurie\Desktop\Generateur\Generateur\obj\Debug\Generateur.csprojAssemblyReference.cache
+C:\Users\Laurie\Desktop\Generateur\Generateur\obj\Debug\Generateur.Properties.Resources.resources
+C:\Users\Laurie\Desktop\Generateur\Generateur\obj\Debug\Generateur.csproj.GenerateResource.cache
+C:\Users\Laurie\Desktop\Generateur\Generateur\obj\Debug\Generateur.csproj.CoreCompileInputs.cache
+C:\Users\Laurie\Desktop\Generateur\Generateur\obj\Debug\Generateur.exe
+C:\Users\Laurie\Desktop\Generateur\Generateur\obj\Debug\Generateur.pdb
+C:\Users\Laurie\Desktop\Generateur\Generateur\obj\Debug\Generateur.FormGenerateur.resources

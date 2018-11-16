@@ -34,6 +34,7 @@
             this.txtMinPass = new System.Windows.Forms.TextBox();
             this.cmdAjAeroport = new System.Windows.Forms.Button();
             this.pnnListes = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.lstVehicules = new System.Windows.Forms.ListBox();
             this.lstAeroports = new System.Windows.Forms.ListBox();
             this.txtMaxMarch = new System.Windows.Forms.TextBox();
@@ -115,6 +116,16 @@
             this.pnnListes.Name = "pnnListes";
             this.pnnListes.Size = new System.Drawing.Size(583, 482);
             this.pnnListes.TabIndex = 7;
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::Generateur.Properties.Resources.earth;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Location = new System.Drawing.Point(416, 153);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(35, 35);
+            this.button1.TabIndex = 2;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // lstVehicules
             // 
@@ -357,6 +368,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1049, 480);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.cmbType);
             this.Controls.Add(this.txtKMH);
             this.Controls.Add(this.etqMaint);
@@ -433,6 +445,7 @@
         private System.Windows.Forms.TextBox txtVehNom;
         private System.Windows.Forms.TextBox txtKMH;
         private System.Windows.Forms.ComboBox cmbType;
+        private System.Windows.Forms.Button button1;
     }
 }
 
