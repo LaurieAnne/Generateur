@@ -15,36 +15,41 @@ namespace Generateur
             m_aeroports = new List<Aeroport>();
         }
 
-        public void ajouterAeroport(string p_nom, int p_minPass, int p_maxPass, int p_minMarch, int p_maxMarch)
+        public void ajouterAeroport(string p_nom, int p_minPass, int p_maxPass, int p_minMarch, int p_maxMarch) //Ajouter un aéroport
         {
-            Aeroport aeroport = new Aeroport(p_nom, p_minPass, p_maxPass, p_minMarch, p_maxMarch);
+            Aeroport aeroport = new Aeroport(p_nom, p_minPass, p_maxPass, p_minMarch, p_maxMarch); //Nouvel aéroport
             m_aeroports.Add(aeroport);
         }
 
-        public void ajouterVehicule(string p_nom, int p_KMH, int p_tempsMain, bool p_obs, int p_aeroport)
+        public void ajouterVehicule(string p_nom, int p_KMH, int p_tempsMain, int p_type, int p_aeroport) //Ajouter un véhicule
         {
-            Vehicule vehicule;
-            if (p_obs)
-                vehicule = new AvionObservateur(p_nom, p_KMH, p_tempsMain);
+            Vehicule vehicule; //Nouveau véhicule
+            if (p_type == 0)
+            {
+                vehicule = new AvionObservateur(p_nom, p_KMH, p_tempsMain); //Type observateur
+            }
             else
-                vehicule = new HelicoSecours(p_nom, p_KMH, p_tempsMain);
+            {
+                vehicule = new HelicoSecours(p_nom, p_KMH, p_tempsMain); //Type secours
+            }
             m_aeroports[p_aeroport].ajouterVehicule(vehicule);
         }
 
-        public void ajouterVehicule(string p_nom, int p_KMH, int p_tempsMain, int p_tempsEmb, int p_tempsDeb, bool p_pass, int p_aeroport)
+        public void ajouterVehicule(string p_nom, int p_KMH, int p_tempsMain, int p_tempsEmbOuCharg, int p_tempsDebOuLarg, int p_type, int p_aeroport) //Ajouter un véhicule
         {
-            Vehicule vehicule;
-            if (p_pass)
-                vehicule = new AvionPassagers(p_nom, p_KMH, p_tempsMain, p_tempsEmb, p_tempsDeb);
+            Vehicule vehicule; //Nouveau véhicule
+            if (p_type == 2)
+            {
+                vehicule = new AvionPassagers(p_nom, p_KMH, p_tempsMain, p_tempsEmbOuCharg, p_tempsDebOuLarg); //Type passagers
+            }
+            else if (p_type == 3)
+            {
+                vehicule = new AvionMarchandises(p_nom, p_KMH, p_tempsMain, p_tempsEmbOuCharg, p_tempsDebOuLarg); //Type marchandises
+            }
             else
-                vehicule = new AvionMarchandises(p_nom, p_KMH, p_tempsMain, p_tempsEmb, p_tempsDeb);
-            m_aeroports[p_aeroport].ajouterVehicule(vehicule);
-        }
-
-        public void ajouterVehicule(string p_nom, int p_KMH, int p_tempsMain, int p_tempsCharg, int p_tempsLarg, int p_aeroport)
-        {
-            Vehicule vehicule;
-            vehicule = new AvionCiterne(p_nom, p_KMH, p_tempsMain, p_tempsCharg, p_tempsLarg);
+            {
+                vehicule = new AvionCiterne(p_nom, p_KMH, p_tempsMain, p_tempsEmbOuCharg, p_tempsDebOuLarg); //Type pompier
+            }
             m_aeroports[p_aeroport].ajouterVehicule(vehicule);
         }
     }

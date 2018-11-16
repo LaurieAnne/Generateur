@@ -20,9 +20,19 @@ namespace Generateur
             m_scenario = p_scenario;
         }
 
-        private void FormGenerateur_Load(object sender, EventArgs e)
+        private void FormGenerateur_Load(object sender, EventArgs e) //À l'affichage la fenêtre
         {
-
+            cmbType.Items.Add("Observateur");
+            cmbType.Items.Add("Secours");
+            cmbType.Items.Add("Passagers");
+            cmbType.Items.Add("Marchandises");
+            cmbType.Items.Add("Pompier");
+            etqEmb.Visible = false;
+            etqDeb.Visible = false;
+            etqCharg.Visible = false;
+            etqLarg.Visible = false;
+            txtEmbOuCharg.Visible = false;
+            txtDebOuLarg.Visible = false;
         }
 
         private void cmdAjAeroport_MouseHover(object sender, EventArgs e)
@@ -55,44 +65,92 @@ namespace Generateur
             this.cmdAjVehicule.BackColor = Color.SkyBlue;
         }
 
-        private void cmdAjAeroport_Click(object sender, EventArgs e)
+        private void cmdAjAeroport_Click(object sender, EventArgs e) //Ajouter un aéroport
         {
-            string nom = txtAeroNom.Text;
-            int minPass = Convert.ToInt32(txtMinPass.Text);
-            int maxPass = Convert.ToInt32(txtMaxPass.Text);
-            int minMarch = Convert.ToInt32(txtMinMarch.Text);
-            int maxMarch = Convert.ToInt32(txtMaxMarch.Text);
-
-            m_scenario.ajouterAeroport(nom, minPass, maxPass, minMarch, maxMarch);
+            if ((txtAeroNom.Text != "") && (txtMinPass.Text != "") && (txtMaxPass.Text != "") && (txtMinMarch.Text != "") && (txtMaxMarch.Text != ""))
+            {
+                int minPass = Convert.ToInt32(txtMinPass.Text);
+                int maxPass = Convert.ToInt32(txtMaxPass.Text);
+                int minMarch = Convert.ToInt32(txtMinMarch.Text);
+                int maxMarch = Convert.ToInt32(txtMaxMarch.Text);
+                m_scenario.ajouterAeroport(txtAeroNom.Text, minPass, maxPass, minMarch, maxMarch);
+            }
+            else
+            {
+                MessageBox.Show("Un champ n'a pas été rempli.");
+            }
         }
 
-        private void cmdAjVehicule_Click(object sender, EventArgs e)
+        private void cmdAjVehicule_Click(object sender, EventArgs e) //Ajouter un véhicule à l'aéroport
         {
-            int aeroport = lstAeroports.SelectedIndex;
-
-            if (aeroport > -1)
+            if (lstAeroports.SelectedIndex > -1) //Si un aéroport est choisi
             {
-                int index = cmbType.SelectedIndex;
-                string nom = txtVehNom.Text;
-                int KMH = Convert.ToInt32(txtKMH.Text);
-                int tempsMaint = Convert.ToInt32(txtMaint.Text);
+                if ((txtVehNom.Text != "") && (txtKMH.Text != "") && (txtMaint.Text != ""))
+                {
+                    int aeroport = lstAeroports.SelectedIndex;
+                    int index = cmbType.SelectedIndex;
+                    int KMH = Convert.ToInt32(txtKMH.Text);
+                    int tempsMaint = Convert.ToInt32(txtMaint.Text);
 
-                if (index == 0 || index == 1) //Observateur ou secours
-                {
-                    m_scenario.ajouterVehicule(nom, KMH, tempsMaint, index == 0, aeroport);
-                }
-                else if (index == 2 || index == 3) //Passagers ou marchandises
-                {
-                    int tempsCharg = Convert.ToInt32(txtEmbOuCharg.Text);
-                    int tempsLarg = Convert.ToInt32(txtDebOuLarg.Text);
-                    m_scenario.ajouterVehicule(nom, KMH, tempsMaint, tempsCharg, tempsLarg, index == 2, aeroport);
+                    if (index == 0 || index == 1) //Observateur ou secours
+                    {
+                        m_scenario.ajouterVehicule(txtVehNom.Text, KMH, tempsMaint, index, aeroport); //Ajouter
+                    }
+                    else //Passagers, marchandises ou pompier
+                    {
+                        if ((txtEmbOuCharg.Text != "") && (txtDebOuLarg.Text != ""))
+                        {
+                            int tempsEmbOuCharg = Convert.ToInt32(txtEmbOuCharg.Text);
+                            int tempsDebOuLarg = Convert.ToInt32(txtDebOuLarg.Text);
+
+                            m_scenario.ajouterVehicule(txtVehNom.Text, KMH, tempsMaint, tempsEmbOuCharg, tempsDebOuLarg, index, aeroport); //Ajouter
+                        }
+                        else
+                        {
+                            MessageBox.Show("Un champ n'a pas été rempli.");
+                        }
+                    }
                 }
                 else
                 {
-                    int tempsCharg = Convert.ToInt32(txtEmbOuCharg.Text);
-                    int tempsLarg = Convert.ToInt32(txtDebOuLarg.Text);
-                    m_scenario.ajouterVehicule(nom, KMH, tempsMaint, tempsCharg, tempsLarg, aeroport);
+                    MessageBox.Show("Un champ n'a pas été rempli.");
                 }
+            }
+            else
+            {
+                MessageBox.Show("Aucun aéroport n'a été choisi.");
+            }
+        }
+
+        private void cmbType_SelectedValueChanged(object sender, EventArgs e) //Cacher ou voir les cases spéciales
+        {
+            int index = cmbType.SelectedIndex;
+            if (index == -1 || index == 0 || index == 1) //Observateur ou secours 
+            {
+                etqEmb.Visible = false;
+                etqDeb.Visible = false;
+                etqCharg.Visible = false;
+                etqLarg.Visible = false;
+                txtEmbOuCharg.Visible = false;
+                txtDebOuLarg.Visible = false;
+            }
+            else if (index == 2 || index == 3) //Passagers ou marchandises
+            {
+                etqEmb.Visible = true;
+                etqDeb.Visible = true;
+                etqCharg.Visible = false;
+                etqLarg.Visible = false;
+                txtEmbOuCharg.Visible = true;
+                txtDebOuLarg.Visible = true;
+            }
+            else //Pompier
+            {
+                etqEmb.Visible = false;
+                etqDeb.Visible = false;
+                etqCharg.Visible = true;
+                etqLarg.Visible = true;
+                txtEmbOuCharg.Visible = true;
+                txtDebOuLarg.Visible = true;
             }
         }
     }

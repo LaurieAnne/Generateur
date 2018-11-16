@@ -33,7 +33,7 @@
             this.txtMaxPass = new System.Windows.Forms.TextBox();
             this.txtMinPass = new System.Windows.Forms.TextBox();
             this.cmdAjAeroport = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.cmdCarte = new System.Windows.Forms.Button();
             this.txtMaxMarch = new System.Windows.Forms.TextBox();
             this.etqAeroNom = new System.Windows.Forms.Label();
             this.etqMinPass = new System.Windows.Forms.Label();
@@ -60,6 +60,8 @@
             this.ongMod = new System.Windows.Forms.TabPage();
             this.lstAeroports = new System.Windows.Forms.ListBox();
             this.lstVehicules = new System.Windows.Forms.ListBox();
+            this.etqCharg = new System.Windows.Forms.Label();
+            this.etqLarg = new System.Windows.Forms.Label();
             this.tabGenerateur.SuspendLayout();
             this.ongAj.SuspendLayout();
             this.SuspendLayout();
@@ -97,7 +99,7 @@
             this.cmdAjAeroport.BackColor = System.Drawing.SystemColors.Window;
             this.cmdAjAeroport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdAjAeroport.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdAjAeroport.Location = new System.Drawing.Point(163, 177);
+            this.cmdAjAeroport.Location = new System.Drawing.Point(163, 174);
             this.cmdAjAeroport.Name = "cmdAjAeroport";
             this.cmdAjAeroport.Size = new System.Drawing.Size(219, 31);
             this.cmdAjAeroport.TabIndex = 6;
@@ -108,15 +110,15 @@
             this.cmdAjAeroport.MouseLeave += new System.EventHandler(this.cmdAjAeroport_MouseLeave);
             this.cmdAjAeroport.MouseHover += new System.EventHandler(this.cmdAjAeroport_MouseHover);
             // 
-            // button1
+            // cmdCarte
             // 
-            this.button1.BackgroundImage = global::Generateur.Properties.Resources.earth;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Location = new System.Drawing.Point(388, 138);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 40);
-            this.button1.TabIndex = 2;
-            this.button1.UseVisualStyleBackColor = true;
+            this.cmdCarte.BackgroundImage = global::Generateur.Properties.Resources.earth;
+            this.cmdCarte.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cmdCarte.Location = new System.Drawing.Point(388, 138);
+            this.cmdCarte.Name = "cmdCarte";
+            this.cmdCarte.Size = new System.Drawing.Size(40, 40);
+            this.cmdCarte.TabIndex = 2;
+            this.cmdCarte.UseVisualStyleBackColor = true;
             // 
             // txtMaxMarch
             // 
@@ -177,6 +179,7 @@
             // 
             // txtPos
             // 
+            this.txtPos.Enabled = false;
             this.txtPos.Location = new System.Drawing.Point(163, 149);
             this.txtPos.Name = "txtPos";
             this.txtPos.ReadOnly = true;
@@ -272,7 +275,7 @@
             this.cmdAjVehicule.BackColor = System.Drawing.SystemColors.Window;
             this.cmdAjVehicule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdAjVehicule.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdAjVehicule.Location = new System.Drawing.Point(163, 389);
+            this.cmdAjVehicule.Location = new System.Drawing.Point(163, 377);
             this.cmdAjVehicule.Name = "cmdAjVehicule";
             this.cmdAjVehicule.Size = new System.Drawing.Size(219, 31);
             this.cmdAjVehicule.TabIndex = 23;
@@ -311,21 +314,22 @@
             this.cmbType.Name = "cmbType";
             this.cmbType.Size = new System.Drawing.Size(219, 21);
             this.cmbType.TabIndex = 33;
+            this.cmbType.SelectedValueChanged += new System.EventHandler(this.cmbType_SelectedValueChanged);
             // 
             // tabGenerateur
             // 
             this.tabGenerateur.Controls.Add(this.ongAj);
             this.tabGenerateur.Controls.Add(this.ongMod);
-            this.tabGenerateur.Location = new System.Drawing.Point(22, 26);
+            this.tabGenerateur.Location = new System.Drawing.Point(22, 12);
             this.tabGenerateur.Name = "tabGenerateur";
             this.tabGenerateur.SelectedIndex = 0;
-            this.tabGenerateur.Size = new System.Drawing.Size(451, 452);
+            this.tabGenerateur.Size = new System.Drawing.Size(451, 466);
             this.tabGenerateur.TabIndex = 34;
             // 
             // ongAj
             // 
             this.ongAj.Controls.Add(this.txtAeroNom);
-            this.ongAj.Controls.Add(this.button1);
+            this.ongAj.Controls.Add(this.cmdCarte);
             this.ongAj.Controls.Add(this.txtMinMarch);
             this.ongAj.Controls.Add(this.cmbType);
             this.ongAj.Controls.Add(this.txtMaxPass);
@@ -351,10 +355,12 @@
             this.ongAj.Controls.Add(this.etqPos);
             this.ongAj.Controls.Add(this.txtEmbOuCharg);
             this.ongAj.Controls.Add(this.txtVehNom);
+            this.ongAj.Controls.Add(this.etqCharg);
+            this.ongAj.Controls.Add(this.etqLarg);
             this.ongAj.Location = new System.Drawing.Point(4, 22);
             this.ongAj.Name = "ongAj";
             this.ongAj.Padding = new System.Windows.Forms.Padding(3);
-            this.ongAj.Size = new System.Drawing.Size(443, 426);
+            this.ongAj.Size = new System.Drawing.Size(443, 440);
             this.ongAj.TabIndex = 0;
             this.ongAj.Text = "AJOUTER";
             this.ongAj.UseVisualStyleBackColor = true;
@@ -364,7 +370,7 @@
             this.ongMod.Location = new System.Drawing.Point(4, 22);
             this.ongMod.Name = "ongMod";
             this.ongMod.Padding = new System.Windows.Forms.Padding(3);
-            this.ongMod.Size = new System.Drawing.Size(443, 426);
+            this.ongMod.Size = new System.Drawing.Size(443, 440);
             this.ongMod.TabIndex = 1;
             this.ongMod.Text = "MODIFIER";
             this.ongMod.UseVisualStyleBackColor = true;
@@ -375,7 +381,7 @@
             this.lstAeroports.FormattingEnabled = true;
             this.lstAeroports.Location = new System.Drawing.Point(494, 26);
             this.lstAeroports.Name = "lstAeroports";
-            this.lstAeroports.Size = new System.Drawing.Size(543, 223);
+            this.lstAeroports.Size = new System.Drawing.Size(543, 210);
             this.lstAeroports.TabIndex = 0;
             // 
             // lstVehicules
@@ -384,8 +390,28 @@
             this.lstVehicules.FormattingEnabled = true;
             this.lstVehicules.Location = new System.Drawing.Point(494, 255);
             this.lstVehicules.Name = "lstVehicules";
-            this.lstVehicules.Size = new System.Drawing.Size(543, 223);
+            this.lstVehicules.Size = new System.Drawing.Size(543, 210);
             this.lstVehicules.TabIndex = 1;
+            // 
+            // etqCharg
+            // 
+            this.etqCharg.AutoSize = true;
+            this.etqCharg.Location = new System.Drawing.Point(38, 329);
+            this.etqCharg.Name = "etqCharg";
+            this.etqCharg.Size = new System.Drawing.Size(119, 14);
+            this.etqCharg.TabIndex = 34;
+            this.etqCharg.Text = "Temps de chargement :";
+            this.etqCharg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // etqLarg
+            // 
+            this.etqLarg.AutoSize = true;
+            this.etqLarg.Location = new System.Drawing.Point(59, 354);
+            this.etqLarg.Name = "etqLarg";
+            this.etqLarg.Size = new System.Drawing.Size(98, 14);
+            this.etqLarg.TabIndex = 35;
+            this.etqLarg.Text = "Temps de largage :";
+            this.etqLarg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // FormGenerateur
             // 
@@ -437,12 +463,14 @@
         private System.Windows.Forms.TextBox txtVehNom;
         private System.Windows.Forms.TextBox txtKMH;
         private System.Windows.Forms.ComboBox cmbType;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button cmdCarte;
         private System.Windows.Forms.TabControl tabGenerateur;
         private System.Windows.Forms.TabPage ongAj;
         private System.Windows.Forms.TabPage ongMod;
         private System.Windows.Forms.ListBox lstAeroports;
         private System.Windows.Forms.ListBox lstVehicules;
+        private System.Windows.Forms.Label etqCharg;
+        private System.Windows.Forms.Label etqLarg;
     }
 }
 
