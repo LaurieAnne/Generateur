@@ -12,14 +12,32 @@ namespace Generateur
 {
     public partial class FormGenerateur : Form
     {
-        Generateur m_generateur; //Le générateur
         Scenario m_scenario; //Le scénario
 
-        public FormGenerateur(Generateur p_generateur, Scenario p_scenario)
+        public FormGenerateur(Scenario p_scenario)
         {
             InitializeComponent();
-            m_generateur = p_generateur;
             m_scenario = p_scenario;
+        }
+
+        private void FormGenerateur_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmdAjAeroport_MouseHover(object sender, EventArgs e)
+        {
+            this.cmdAjAeroport.BackColor = Color.SkyBlue;
+        }
+
+        private void cmdAjAeroport_MouseLeave(object sender, EventArgs e)
+        {
+            this.cmdAjAeroport.BackColor = Color.Transparent;
+        }
+
+        private void cmdAjAeroport_MouseEnter(object sender, EventArgs e)
+        {
+            this.cmdAjAeroport.BackColor = Color.SkyBlue;
         }
     }
 }

@@ -8,9 +8,11 @@ namespace Generateur
 {
     public class Scenario
     {
+        List<Aeroport> m_aeroports;
+
         public Scenario() //Constructeur
         {
-
+            m_aeroports = new List<Aeroport>();
         }
     }
 }

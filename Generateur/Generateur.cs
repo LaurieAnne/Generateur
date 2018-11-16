@@ -23,7 +23,7 @@ namespace Generateur
         public Generateur() //Constructeur
         {
             m_scenario = new Scenario();
-            m_interface = new FormGenerateur(this, m_scenario);
+            m_interface = new FormGenerateur(m_scenario);
             Application.Run(m_interface);
         }
     }
