@@ -6,8 +6,16 @@ using System.Threading.Tasks;
 
 namespace Generateur
 {
-    class Usine
+    public class Usine
     {
+        public static Usine m_usine; //Usine?????
         
+        public Usine() //Constructeur????
+        {
+            if (m_usine == null)
+            {
+                m_usine = new Usine(); //????????????????????????
+            }
+        }
     }
 }

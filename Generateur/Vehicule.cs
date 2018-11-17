@@ -8,17 +8,24 @@ namespace Generateur
 {
     public abstract class Vehicule
     {
-        string m_nom; //Nom
-        int m_KMH; //Le nombre de KM à l'heure
-        int m_tempsMaintenance; //Temps de maintenance
-        ConsoleColor m_couleur; //Couleur
+        protected string m_nom; //Nom
+        protected int m_KMH; //Le nombre de KM à l'heure
+        protected int m_tempsMaintenance; //Temps de maintenance
+        protected ConsoleColor m_couleur; //Couleur
 
-        public Vehicule(string p_nom, int p_KMH, int p_tempsMain, ConsoleColor p_couleur)
+        public Vehicule(string p_nom, int p_KMH, int p_tempsMain, ConsoleColor p_couleur) //Constructeur
         {
             m_nom = p_nom;
             m_KMH = p_KMH;
             m_tempsMaintenance = p_tempsMain;
             m_couleur = p_couleur;
+        }
+
+        public override string ToString() //ToString
+        {
+            string vehicule;
+            vehicule = m_nom + ", " + m_KMH + " KM/H, Maintenance: " + m_tempsMaintenance;
+            return vehicule;
         }
     }
 }

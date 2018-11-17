@@ -8,8 +8,8 @@ namespace Generateur
 {
     public class Generateur
     {
-        FormGenerateur m_interface; //Interface du générateur
-        Scenario m_scenario; //Façade/Médiateur
+        private FormGenerateur m_interface; //Interface du générateur
+        private Scenario m_scenario; //Façade/Médiateur
 
         [STAThread]
 

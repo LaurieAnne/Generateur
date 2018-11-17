@@ -63,9 +63,9 @@ namespace Generateur.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap earth {
+        internal static System.Drawing.Bitmap pin {
             get {
-                object obj = ResourceManager.GetObject("earth", resourceCulture);
+                object obj = ResourceManager.GetObject("pin", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

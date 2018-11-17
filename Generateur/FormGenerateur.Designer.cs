@@ -33,7 +33,6 @@
             this.txtMaxPass = new System.Windows.Forms.TextBox();
             this.txtMinPass = new System.Windows.Forms.TextBox();
             this.cmdAjAeroport = new System.Windows.Forms.Button();
-            this.cmdCarte = new System.Windows.Forms.Button();
             this.txtMaxMarch = new System.Windows.Forms.TextBox();
             this.etqAeroNom = new System.Windows.Forms.Label();
             this.etqMinPass = new System.Windows.Forms.Label();
@@ -57,52 +56,56 @@
             this.cmbType = new System.Windows.Forms.ComboBox();
             this.tabGenerateur = new System.Windows.Forms.TabControl();
             this.ongAj = new System.Windows.Forms.TabPage();
+            this.etqCharg = new System.Windows.Forms.Label();
+            this.etqLarg = new System.Windows.Forms.Label();
             this.ongMod = new System.Windows.Forms.TabPage();
             this.lstAeroports = new System.Windows.Forms.ListBox();
             this.lstVehicules = new System.Windows.Forms.ListBox();
-            this.etqCharg = new System.Windows.Forms.Label();
-            this.etqLarg = new System.Windows.Forms.Label();
+            this.cmdCarte = new System.Windows.Forms.Button();
             this.tabGenerateur.SuspendLayout();
             this.ongAj.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtAeroNom
             // 
-            this.txtAeroNom.Location = new System.Drawing.Point(163, 9);
+            this.txtAeroNom.Location = new System.Drawing.Point(163, 12);
             this.txtAeroNom.Name = "txtAeroNom";
             this.txtAeroNom.Size = new System.Drawing.Size(219, 19);
-            this.txtAeroNom.TabIndex = 2;
+            this.txtAeroNom.TabIndex = 1;
             // 
             // txtMinMarch
             // 
-            this.txtMinMarch.Location = new System.Drawing.Point(163, 93);
+            this.txtMinMarch.Location = new System.Drawing.Point(163, 87);
             this.txtMinMarch.Name = "txtMinMarch";
             this.txtMinMarch.Size = new System.Drawing.Size(219, 19);
-            this.txtMinMarch.TabIndex = 3;
+            this.txtMinMarch.TabIndex = 4;
+            this.txtMinMarch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMinMarch_KeyPress);
             // 
             // txtMaxPass
             // 
-            this.txtMaxPass.Location = new System.Drawing.Point(163, 65);
+            this.txtMaxPass.Location = new System.Drawing.Point(163, 62);
             this.txtMaxPass.Name = "txtMaxPass";
             this.txtMaxPass.Size = new System.Drawing.Size(219, 19);
-            this.txtMaxPass.TabIndex = 4;
+            this.txtMaxPass.TabIndex = 3;
+            this.txtMaxPass.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaxPass_KeyPress);
             // 
             // txtMinPass
             // 
             this.txtMinPass.Location = new System.Drawing.Point(163, 37);
             this.txtMinPass.Name = "txtMinPass";
             this.txtMinPass.Size = new System.Drawing.Size(219, 19);
-            this.txtMinPass.TabIndex = 5;
+            this.txtMinPass.TabIndex = 2;
+            this.txtMinPass.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMinPass_KeyPress);
             // 
             // cmdAjAeroport
             // 
             this.cmdAjAeroport.BackColor = System.Drawing.SystemColors.Window;
             this.cmdAjAeroport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdAjAeroport.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdAjAeroport.Location = new System.Drawing.Point(163, 174);
+            this.cmdAjAeroport.Location = new System.Drawing.Point(163, 162);
             this.cmdAjAeroport.Name = "cmdAjAeroport";
             this.cmdAjAeroport.Size = new System.Drawing.Size(219, 31);
-            this.cmdAjAeroport.TabIndex = 6;
+            this.cmdAjAeroport.TabIndex = 7;
             this.cmdAjAeroport.Text = "Ajouter un aéroport";
             this.cmdAjAeroport.UseVisualStyleBackColor = false;
             this.cmdAjAeroport.Click += new System.EventHandler(this.cmdAjAeroport_Click);
@@ -110,27 +113,18 @@
             this.cmdAjAeroport.MouseLeave += new System.EventHandler(this.cmdAjAeroport_MouseLeave);
             this.cmdAjAeroport.MouseHover += new System.EventHandler(this.cmdAjAeroport_MouseHover);
             // 
-            // cmdCarte
-            // 
-            this.cmdCarte.BackgroundImage = global::Generateur.Properties.Resources.earth;
-            this.cmdCarte.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.cmdCarte.Location = new System.Drawing.Point(388, 138);
-            this.cmdCarte.Name = "cmdCarte";
-            this.cmdCarte.Size = new System.Drawing.Size(40, 40);
-            this.cmdCarte.TabIndex = 2;
-            this.cmdCarte.UseVisualStyleBackColor = true;
-            // 
             // txtMaxMarch
             // 
-            this.txtMaxMarch.Location = new System.Drawing.Point(163, 121);
+            this.txtMaxMarch.Location = new System.Drawing.Point(163, 112);
             this.txtMaxMarch.Name = "txtMaxMarch";
             this.txtMaxMarch.Size = new System.Drawing.Size(219, 19);
-            this.txtMaxMarch.TabIndex = 8;
+            this.txtMaxMarch.TabIndex = 5;
+            this.txtMaxMarch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaxMarch_KeyPress);
             // 
             // etqAeroNom
             // 
             this.etqAeroNom.AutoSize = true;
-            this.etqAeroNom.Location = new System.Drawing.Point(123, 11);
+            this.etqAeroNom.Location = new System.Drawing.Point(123, 14);
             this.etqAeroNom.Name = "etqAeroNom";
             this.etqAeroNom.Size = new System.Drawing.Size(34, 14);
             this.etqAeroNom.TabIndex = 9;
@@ -150,7 +144,7 @@
             // etqMaxPass
             // 
             this.etqMaxPass.AutoSize = true;
-            this.etqMaxPass.Location = new System.Drawing.Point(45, 67);
+            this.etqMaxPass.Location = new System.Drawing.Point(45, 64);
             this.etqMaxPass.Name = "etqMaxPass";
             this.etqMaxPass.Size = new System.Drawing.Size(112, 14);
             this.etqMaxPass.TabIndex = 11;
@@ -160,7 +154,7 @@
             // etqMinMarch
             // 
             this.etqMinMarch.AutoSize = true;
-            this.etqMinMarch.Location = new System.Drawing.Point(33, 95);
+            this.etqMinMarch.Location = new System.Drawing.Point(33, 89);
             this.etqMinMarch.Name = "etqMinMarch";
             this.etqMinMarch.Size = new System.Drawing.Size(124, 14);
             this.etqMinMarch.TabIndex = 12;
@@ -170,7 +164,7 @@
             // etqMaxMarch
             // 
             this.etqMaxMarch.AutoSize = true;
-            this.etqMaxMarch.Location = new System.Drawing.Point(29, 123);
+            this.etqMaxMarch.Location = new System.Drawing.Point(29, 114);
             this.etqMaxMarch.Name = "etqMaxMarch";
             this.etqMaxMarch.Size = new System.Drawing.Size(128, 14);
             this.etqMaxMarch.TabIndex = 13;
@@ -180,7 +174,7 @@
             // txtPos
             // 
             this.txtPos.Enabled = false;
-            this.txtPos.Location = new System.Drawing.Point(163, 149);
+            this.txtPos.Location = new System.Drawing.Point(163, 137);
             this.txtPos.Name = "txtPos";
             this.txtPos.ReadOnly = true;
             this.txtPos.Size = new System.Drawing.Size(219, 19);
@@ -189,7 +183,7 @@
             // etqPos
             // 
             this.etqPos.AutoSize = true;
-            this.etqPos.Location = new System.Drawing.Point(23, 151);
+            this.etqPos.Location = new System.Drawing.Point(23, 139);
             this.etqPos.Name = "etqPos";
             this.etqPos.Size = new System.Drawing.Size(134, 14);
             this.etqPos.TabIndex = 15;
@@ -199,7 +193,7 @@
             // etqMaint
             // 
             this.etqMaint.AutoSize = true;
-            this.etqMaint.Location = new System.Drawing.Point(34, 304);
+            this.etqMaint.Location = new System.Drawing.Point(34, 297);
             this.etqMaint.Name = "etqMaint";
             this.etqMaint.Size = new System.Drawing.Size(123, 14);
             this.etqMaint.TabIndex = 31;
@@ -208,15 +202,16 @@
             // 
             // txtMaint
             // 
-            this.txtMaint.Location = new System.Drawing.Point(163, 302);
+            this.txtMaint.Location = new System.Drawing.Point(163, 295);
             this.txtMaint.Name = "txtMaint";
             this.txtMaint.Size = new System.Drawing.Size(219, 19);
-            this.txtMaint.TabIndex = 30;
+            this.txtMaint.TabIndex = 12;
+            this.txtMaint.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaint_KeyPress);
             // 
             // etqDeb
             // 
             this.etqDeb.AutoSize = true;
-            this.etqDeb.Location = new System.Drawing.Point(26, 354);
+            this.etqDeb.Location = new System.Drawing.Point(26, 347);
             this.etqDeb.Name = "etqDeb";
             this.etqDeb.Size = new System.Drawing.Size(131, 14);
             this.etqDeb.TabIndex = 29;
@@ -226,7 +221,7 @@
             // etqEmb
             // 
             this.etqEmb.AutoSize = true;
-            this.etqEmb.Location = new System.Drawing.Point(31, 329);
+            this.etqEmb.Location = new System.Drawing.Point(31, 322);
             this.etqEmb.Name = "etqEmb";
             this.etqEmb.Size = new System.Drawing.Size(126, 14);
             this.etqEmb.TabIndex = 28;
@@ -236,7 +231,7 @@
             // etqKMH
             // 
             this.etqKMH.AutoSize = true;
-            this.etqKMH.Location = new System.Drawing.Point(119, 279);
+            this.etqKMH.Location = new System.Drawing.Point(119, 272);
             this.etqKMH.Name = "etqKMH";
             this.etqKMH.Size = new System.Drawing.Size(38, 14);
             this.etqKMH.TabIndex = 27;
@@ -246,7 +241,7 @@
             // etqType
             // 
             this.etqType.AutoSize = true;
-            this.etqType.Location = new System.Drawing.Point(121, 252);
+            this.etqType.Location = new System.Drawing.Point(121, 245);
             this.etqType.Name = "etqType";
             this.etqType.Size = new System.Drawing.Size(36, 14);
             this.etqType.TabIndex = 26;
@@ -256,7 +251,7 @@
             // etqVehNom
             // 
             this.etqVehNom.AutoSize = true;
-            this.etqVehNom.Location = new System.Drawing.Point(123, 227);
+            this.etqVehNom.Location = new System.Drawing.Point(123, 220);
             this.etqVehNom.Name = "etqVehNom";
             this.etqVehNom.Size = new System.Drawing.Size(34, 14);
             this.etqVehNom.TabIndex = 25;
@@ -265,20 +260,21 @@
             // 
             // txtDebOuLarg
             // 
-            this.txtDebOuLarg.Location = new System.Drawing.Point(163, 352);
+            this.txtDebOuLarg.Location = new System.Drawing.Point(163, 345);
             this.txtDebOuLarg.Name = "txtDebOuLarg";
             this.txtDebOuLarg.Size = new System.Drawing.Size(219, 19);
-            this.txtDebOuLarg.TabIndex = 24;
+            this.txtDebOuLarg.TabIndex = 14;
+            this.txtDebOuLarg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDebOuLarg_KeyPress);
             // 
             // cmdAjVehicule
             // 
             this.cmdAjVehicule.BackColor = System.Drawing.SystemColors.Window;
             this.cmdAjVehicule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdAjVehicule.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdAjVehicule.Location = new System.Drawing.Point(163, 377);
+            this.cmdAjVehicule.Location = new System.Drawing.Point(163, 370);
             this.cmdAjVehicule.Name = "cmdAjVehicule";
             this.cmdAjVehicule.Size = new System.Drawing.Size(219, 31);
-            this.cmdAjVehicule.TabIndex = 23;
+            this.cmdAjVehicule.TabIndex = 15;
             this.cmdAjVehicule.Text = "Ajouter un véhicule";
             this.cmdAjVehicule.UseVisualStyleBackColor = false;
             this.cmdAjVehicule.Click += new System.EventHandler(this.cmdAjVehicule_Click);
@@ -288,46 +284,50 @@
             // 
             // txtEmbOuCharg
             // 
-            this.txtEmbOuCharg.Location = new System.Drawing.Point(163, 327);
+            this.txtEmbOuCharg.Location = new System.Drawing.Point(163, 320);
             this.txtEmbOuCharg.Name = "txtEmbOuCharg";
             this.txtEmbOuCharg.Size = new System.Drawing.Size(219, 19);
-            this.txtEmbOuCharg.TabIndex = 20;
+            this.txtEmbOuCharg.TabIndex = 13;
+            this.txtEmbOuCharg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmbOuCharg_KeyPress);
             // 
             // txtVehNom
             // 
-            this.txtVehNom.Location = new System.Drawing.Point(163, 225);
+            this.txtVehNom.Location = new System.Drawing.Point(163, 218);
             this.txtVehNom.Name = "txtVehNom";
             this.txtVehNom.Size = new System.Drawing.Size(219, 19);
-            this.txtVehNom.TabIndex = 19;
+            this.txtVehNom.TabIndex = 9;
             // 
             // txtKMH
             // 
-            this.txtKMH.Location = new System.Drawing.Point(163, 277);
+            this.txtKMH.Location = new System.Drawing.Point(163, 270);
             this.txtKMH.Name = "txtKMH";
             this.txtKMH.Size = new System.Drawing.Size(219, 19);
-            this.txtKMH.TabIndex = 32;
+            this.txtKMH.TabIndex = 11;
+            this.txtKMH.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKMH_KeyPress);
             // 
             // cmbType
             // 
             this.cmbType.FormattingEnabled = true;
-            this.cmbType.Location = new System.Drawing.Point(163, 250);
+            this.cmbType.Location = new System.Drawing.Point(163, 243);
             this.cmbType.Name = "cmbType";
             this.cmbType.Size = new System.Drawing.Size(219, 21);
-            this.cmbType.TabIndex = 33;
+            this.cmbType.TabIndex = 10;
             this.cmbType.SelectedValueChanged += new System.EventHandler(this.cmbType_SelectedValueChanged);
             // 
             // tabGenerateur
             // 
+            this.tabGenerateur.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tabGenerateur.Controls.Add(this.ongAj);
             this.tabGenerateur.Controls.Add(this.ongMod);
             this.tabGenerateur.Location = new System.Drawing.Point(22, 12);
             this.tabGenerateur.Name = "tabGenerateur";
             this.tabGenerateur.SelectedIndex = 0;
             this.tabGenerateur.Size = new System.Drawing.Size(451, 466);
-            this.tabGenerateur.TabIndex = 34;
+            this.tabGenerateur.TabIndex = 0;
             // 
             // ongAj
             // 
+            this.ongAj.BackColor = System.Drawing.Color.LightCyan;
             this.ongAj.Controls.Add(this.txtAeroNom);
             this.ongAj.Controls.Add(this.cmdCarte);
             this.ongAj.Controls.Add(this.txtMinMarch);
@@ -357,20 +357,39 @@
             this.ongAj.Controls.Add(this.txtVehNom);
             this.ongAj.Controls.Add(this.etqCharg);
             this.ongAj.Controls.Add(this.etqLarg);
-            this.ongAj.Location = new System.Drawing.Point(4, 22);
+            this.ongAj.Location = new System.Drawing.Point(4, 25);
             this.ongAj.Name = "ongAj";
             this.ongAj.Padding = new System.Windows.Forms.Padding(3);
-            this.ongAj.Size = new System.Drawing.Size(443, 440);
+            this.ongAj.Size = new System.Drawing.Size(443, 437);
             this.ongAj.TabIndex = 0;
             this.ongAj.Text = "AJOUTER";
-            this.ongAj.UseVisualStyleBackColor = true;
+            // 
+            // etqCharg
+            // 
+            this.etqCharg.AutoSize = true;
+            this.etqCharg.Location = new System.Drawing.Point(38, 322);
+            this.etqCharg.Name = "etqCharg";
+            this.etqCharg.Size = new System.Drawing.Size(119, 14);
+            this.etqCharg.TabIndex = 34;
+            this.etqCharg.Text = "Temps de chargement :";
+            this.etqCharg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // etqLarg
+            // 
+            this.etqLarg.AutoSize = true;
+            this.etqLarg.Location = new System.Drawing.Point(59, 347);
+            this.etqLarg.Name = "etqLarg";
+            this.etqLarg.Size = new System.Drawing.Size(98, 14);
+            this.etqLarg.TabIndex = 35;
+            this.etqLarg.Text = "Temps de largage :";
+            this.etqLarg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // ongMod
             // 
-            this.ongMod.Location = new System.Drawing.Point(4, 22);
+            this.ongMod.Location = new System.Drawing.Point(4, 25);
             this.ongMod.Name = "ongMod";
             this.ongMod.Padding = new System.Windows.Forms.Padding(3);
-            this.ongMod.Size = new System.Drawing.Size(443, 440);
+            this.ongMod.Size = new System.Drawing.Size(443, 437);
             this.ongMod.TabIndex = 1;
             this.ongMod.Text = "MODIFIER";
             this.ongMod.UseVisualStyleBackColor = true;
@@ -382,7 +401,8 @@
             this.lstAeroports.Location = new System.Drawing.Point(494, 26);
             this.lstAeroports.Name = "lstAeroports";
             this.lstAeroports.Size = new System.Drawing.Size(543, 210);
-            this.lstAeroports.TabIndex = 0;
+            this.lstAeroports.TabIndex = 8;
+            this.lstAeroports.SelectedValueChanged += new System.EventHandler(this.lstAeroports_SelectedValueChanged);
             // 
             // lstVehicules
             // 
@@ -391,27 +411,17 @@
             this.lstVehicules.Location = new System.Drawing.Point(494, 255);
             this.lstVehicules.Name = "lstVehicules";
             this.lstVehicules.Size = new System.Drawing.Size(543, 210);
-            this.lstVehicules.TabIndex = 1;
+            this.lstVehicules.TabIndex = 16;
             // 
-            // etqCharg
+            // cmdCarte
             // 
-            this.etqCharg.AutoSize = true;
-            this.etqCharg.Location = new System.Drawing.Point(38, 329);
-            this.etqCharg.Name = "etqCharg";
-            this.etqCharg.Size = new System.Drawing.Size(119, 14);
-            this.etqCharg.TabIndex = 34;
-            this.etqCharg.Text = "Temps de chargement :";
-            this.etqCharg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // etqLarg
-            // 
-            this.etqLarg.AutoSize = true;
-            this.etqLarg.Location = new System.Drawing.Point(59, 354);
-            this.etqLarg.Name = "etqLarg";
-            this.etqLarg.Size = new System.Drawing.Size(98, 14);
-            this.etqLarg.TabIndex = 35;
-            this.etqLarg.Text = "Temps de largage :";
-            this.etqLarg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cmdCarte.BackgroundImage = global::Generateur.Properties.Resources.pin;
+            this.cmdCarte.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cmdCarte.Location = new System.Drawing.Point(388, 126);
+            this.cmdCarte.Name = "cmdCarte";
+            this.cmdCarte.Size = new System.Drawing.Size(40, 40);
+            this.cmdCarte.TabIndex = 6;
+            this.cmdCarte.UseVisualStyleBackColor = true;
             // 
             // FormGenerateur
             // 

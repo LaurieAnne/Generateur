@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace Generateur
 {
-    class PosCarte
+    public class PosCarte
     {
+        private int m_x; //Pos X
+        private int m_y; //Pos Y
+
+        public PosCarte() //Constructeur
+        {
+
+        }
     }
 }

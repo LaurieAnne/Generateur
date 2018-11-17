@@ -12,9 +12,9 @@ namespace Generateur
 {
     public partial class FormGenerateur : Form
     {
-        Scenario m_scenario; //Le scénario
+        private Scenario m_scenario; //Le scénario
 
-        public FormGenerateur(Scenario p_scenario)
+        public FormGenerateur(Scenario p_scenario) //Constructeur
         {
             InitializeComponent();
             m_scenario = p_scenario;
@@ -65,6 +65,31 @@ namespace Generateur
             this.cmdAjVehicule.BackColor = Color.SkyBlue;
         }
 
+        private void afficherAeroports() //Afficher les aéroports
+        {
+            string[] aeroports = m_scenario.obtenirAeroports();
+
+            lstAeroports.Items.Clear();
+            lstVehicules.Items.Clear();
+
+            for (int i = 0; i < aeroports.Length; i++)
+            {
+                lstAeroports.Items.Add(aeroports[i]);
+            }
+        }
+
+        private void afficherVehicules() //Afficher les véhicules
+        {
+            string[] vehicules = m_scenario.obtenirVehicules(lstAeroports.SelectedIndex);
+
+            lstVehicules.Items.Clear();
+
+            for (int i = 0; i < vehicules.Length; i++)
+            {
+                lstVehicules.Items.Add(vehicules[i]);
+            }
+        }
+
         private void cmdAjAeroport_Click(object sender, EventArgs e) //Ajouter un aéroport
         {
             if ((txtAeroNom.Text != "") && (txtMinPass.Text != "") && (txtMaxPass.Text != "") && (txtMinMarch.Text != "") && (txtMaxMarch.Text != ""))
@@ -74,6 +99,7 @@ namespace Generateur
                 int minMarch = Convert.ToInt32(txtMinMarch.Text);
                 int maxMarch = Convert.ToInt32(txtMaxMarch.Text);
                 m_scenario.ajouterAeroport(txtAeroNom.Text, minPass, maxPass, minMarch, maxMarch);
+                afficherAeroports();
             }
             else
             {
@@ -85,7 +111,7 @@ namespace Generateur
         {
             if (lstAeroports.SelectedIndex > -1) //Si un aéroport est choisi
             {
-                if ((txtVehNom.Text != "") && (txtKMH.Text != "") && (txtMaint.Text != ""))
+                if ((txtVehNom.Text != "") && (txtKMH.Text != "") && (txtMaint.Text != "") && (cmbType.SelectedIndex > -1))
                 {
                     int aeroport = lstAeroports.SelectedIndex;
                     int index = cmbType.SelectedIndex;
@@ -95,6 +121,7 @@ namespace Generateur
                     if (index == 0 || index == 1) //Observateur ou secours
                     {
                         m_scenario.ajouterVehicule(txtVehNom.Text, KMH, tempsMaint, index, aeroport); //Ajouter
+                        afficherVehicules();
                     }
                     else //Passagers, marchandises ou pompier
                     {
@@ -104,6 +131,7 @@ namespace Generateur
                             int tempsDebOuLarg = Convert.ToInt32(txtDebOuLarg.Text);
 
                             m_scenario.ajouterVehicule(txtVehNom.Text, KMH, tempsMaint, tempsEmbOuCharg, tempsDebOuLarg, index, aeroport); //Ajouter
+                            afficherVehicules();
                         }
                         else
                         {
@@ -152,6 +180,58 @@ namespace Generateur
                 txtEmbOuCharg.Visible = true;
                 txtDebOuLarg.Visible = true;
             }
+        }
+
+        private void lstAeroports_SelectedValueChanged(object sender, EventArgs e) //Sur un changement d'aéroport
+        {
+            if (lstAeroports.SelectedIndex > -1) //Si un aéroport est choisi
+            {
+                afficherVehicules();
+            }
+            else
+            {
+                lstVehicules.Items.Clear();
+            }
+        }
+
+        private void txtMinPass_KeyPress(object sender, KeyPressEventArgs e) //Accepter seulement les chiffres
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtMaxPass_KeyPress(object sender, KeyPressEventArgs e) //Accepter seulement les chiffres
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtMinMarch_KeyPress(object sender, KeyPressEventArgs e) //Accepter seulement les chiffres
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtKMH_KeyPress(object sender, KeyPressEventArgs e) //Accepter seulement les chiffres
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtMaint_KeyPress(object sender, KeyPressEventArgs e) //Accepter seulement les chiffres
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtEmbOuCharg_KeyPress(object sender, KeyPressEventArgs e) //Accepter seulement les chiffres
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtDebOuLarg_KeyPress(object sender, KeyPressEventArgs e) //Accepter seulement les chiffres
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtMaxMarch_KeyPress(object sender, KeyPressEventArgs e) //Accepter seulement les chiffres
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }
