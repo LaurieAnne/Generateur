@@ -1,0 +1,5 @@
+XML
+générer scénario
+bouton map
+PosCarte
+Usine : new Aeroport
