@@ -35,44 +35,35 @@ namespace Generateur
 
         public void ajouterAeroport(string p_nom, int p_minPass, int p_maxPass, int p_minMarch, int p_maxMarch) //Ajouter un aéroport
         {
-            Aeroport aeroport = new Aeroport(p_nom, p_minPass, p_maxPass, p_minMarch, p_maxMarch); //Nouvel aéroport
+            Aeroport aeroport = new Aeroport(p_nom, p_minPass, p_maxPass, p_minMarch, p_maxMarch);
             m_aeroports.Add(aeroport);
         }
 
-        public void ajouterVehicule(string p_nom, int p_KMH, int p_tempsMain, int p_type, int p_aeroport) //Ajouter un véhicule
+        public void modifierAeroport(string p_nom, int p_minPass, int p_maxPass, int p_minMarch, int p_maxMarch, int p_aeroport) //Modifier un aéroport
         {
-            Vehicule vehicule; //Nouveau véhicule
+            m_aeroports[p_aeroport].modifierAeroport(p_nom, p_minPass, p_maxPass, p_minMarch, p_maxMarch);
+        }
 
-            if (p_type == 0)
-            {
-                vehicule = new AvionObservateur(p_nom, p_KMH, p_tempsMain); //Type observateur
-            }
-            else
-            {
-                vehicule = new HelicoSecours(p_nom, p_KMH, p_tempsMain); //Type secours
-            }
+        public void supprimerAeroport(int p_aeroport) //Supprimer un aéroport
+        {
+            m_aeroports.RemoveAt(p_aeroport);
+        }
 
+        public void ajouterVehicule(string p_nom, int[] p_params, int p_type, int p_aeroport) //Ajouter un véhicule
+        {
+            Usine usine = Usine.obtenirUsine();
+            Vehicule vehicule = usine.creerVehicule(p_nom, p_params, p_type);
             m_aeroports[p_aeroport].ajouterVehicule(vehicule);
         }
 
-        public void ajouterVehicule(string p_nom, int p_KMH, int p_tempsMain, int p_tempsEmbOuCharg, int p_tempsDebOuLarg, int p_type, int p_aeroport) //Ajouter un véhicule
+        public void modifierVehicule(string p_nom, int[] p_params, int p_vehicule, int p_aeroport) //Modifier un véhicule
         {
-            Vehicule vehicule; //Nouveau véhicule
+            m_aeroports[p_aeroport].modifierVehicule(p_nom, p_params, p_vehicule);
+        }
 
-            if (p_type == 2)
-            {
-                vehicule = new AvionPassagers(p_nom, p_KMH, p_tempsMain, p_tempsEmbOuCharg, p_tempsDebOuLarg); //Type passagers
-            }
-            else if (p_type == 3)
-            {
-                vehicule = new AvionMarchandises(p_nom, p_KMH, p_tempsMain, p_tempsEmbOuCharg, p_tempsDebOuLarg); //Type marchandises
-            }
-            else
-            {
-                vehicule = new AvionCiterne(p_nom, p_KMH, p_tempsMain, p_tempsEmbOuCharg, p_tempsDebOuLarg); //Type pompier
-            }
-
-            m_aeroports[p_aeroport].ajouterVehicule(vehicule);
+        public void supprimerVehicule(int p_aeroport, int p_vehicule) //Supprimer un véhicule
+        {
+            m_aeroports[p_aeroport].supprimerVehicule(p_vehicule);
         }
     }
 }

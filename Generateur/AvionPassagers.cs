@@ -17,9 +17,18 @@ namespace Generateur
         public override string ToString() //ToString
         {
             string vehicule;
-            vehicule = m_nom + ", " + m_KMH + " KM/H, Maintenance: " + m_tempsMaintenance;
+            vehicule = m_nom + " (Passagers), KM/H: " + m_KMH + ", Maintenance: " + m_tempsMaintenance;
             vehicule += ", Embarquement: " + m_tempsEmbarquement + ", Débarquement: " + m_tempsDebarquement;
             return vehicule;
+        }
+
+        public override void modifierVehicule(string p_nom, int[] p_params) //Modifier un véhicule
+        {
+            m_nom = p_nom;
+            m_KMH = p_params[0];
+            m_tempsMaintenance = p_params[1];
+            m_tempsEmbarquement = p_params[2];
+            m_tempsDebarquement = p_params[3];
         }
     }
 }

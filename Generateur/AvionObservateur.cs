@@ -13,5 +13,12 @@ namespace Generateur
         {
 
         }
+
+        public override string ToString() //ToString
+        {
+            string vehicule;
+            vehicule = m_nom + " (Observateur), KM/H: " + m_KMH + ", Maintenance: " + m_tempsMaintenance;
+            return vehicule;
+        }
     }
 }

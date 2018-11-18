@@ -46,9 +46,28 @@ namespace Generateur
             return vehicules;
         }
 
+        public void modifierAeroport(string p_nom, int p_minPass, int p_maxPass, int p_minMarch, int p_maxMarch) //Modifier un aéroport
+        {
+            m_nom = p_nom;
+            m_minPassagers = p_minPass;
+            m_maxPassagers = p_maxPass;
+            m_minMarchandises = p_minMarch;
+            m_maxMarchandises = p_maxMarch;
+        }
+
         public void ajouterVehicule(Vehicule p_vehicule) //Ajouter un véhicule
         {
             m_vehicules.Add(p_vehicule);
+        }
+
+        public void modifierVehicule(string p_nom, int[] p_params, int p_vehicule) //Modifier un véhicule
+        {
+            m_vehicules[p_vehicule].modifierVehicule(p_nom, p_params);
+        }
+
+        public void supprimerVehicule(int p_vehicule) //Supprimer un véhicule
+        {
+            m_vehicules.RemoveAt(p_vehicule);
         }
     }
 }
