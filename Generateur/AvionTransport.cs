@@ -26,11 +26,13 @@ namespace Generateur
         public int Embarquement
         {
             get { return m_tempsEmbarquement; }
+            set { m_tempsEmbarquement = value; }
         }
 
         public int Debarquement
         {
             get { return m_tempsDebarquement; }
+            set { m_tempsDebarquement = value; }
         }
     }
 }

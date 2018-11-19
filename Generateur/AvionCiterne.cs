@@ -26,11 +26,13 @@ namespace Generateur
         public int Chargement
         {
             get { return m_tempsChargement; }
+            set { m_tempsChargement = value; }
         }
 
         public int Largage
         {
             get { return m_tempsLargage; }
+            set { m_tempsLargage = value; }
         }
 
         public override string ToString() //ToString

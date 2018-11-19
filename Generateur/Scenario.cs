@@ -21,6 +21,7 @@ namespace Generateur
         public List<Aeroport> ListeAeroports
         {
             get { return m_aeroports; }
+            set { m_aeroports = value; }
         }
 
         public string[] obtenirAeroports() //Obtenir tous les aéroports
@@ -78,7 +79,7 @@ namespace Generateur
         public void genererScenario(string p_nom) //Générer le scénario
         {
             XmlSerializer xs = new XmlSerializer(typeof(Scenario));
-            string path = "..\\..\\..\\" + p_nom + ".txt";
+            string path = "..\\..\\..\\" + p_nom + ".xml";
             using (StreamWriter sw = new StreamWriter(path))
             {
                 xs.Serialize(sw, this);

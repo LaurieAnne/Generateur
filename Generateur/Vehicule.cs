@@ -35,21 +35,25 @@ namespace Generateur
         public string Nom
         {
             get { return m_nom; }
+            set { m_nom = value; }
         }
 
-        public int kMH
+        public int KMH
         {
             get { return m_KMH; }
+            set { m_KMH = value; }
         }
 
         public int Maintenance
         {
             get { return m_tempsMaintenance; }
+            set { m_tempsMaintenance = value; }
         }
 
         public ConsoleColor Couleur
         {
             get { return m_couleur; }
+            set { m_couleur = value; }
         }
 
         public override string ToString() //ToString
