@@ -60,11 +60,6 @@
             this.etqCharg = new System.Windows.Forms.Label();
             this.etqLarg = new System.Windows.Forms.Label();
             this.ongMod = new System.Windows.Forms.TabPage();
-            this.lstAeroports = new System.Windows.Forms.ListBox();
-            this.lstVehicules = new System.Windows.Forms.ListBox();
-            this.cmdSuppAeroport = new System.Windows.Forms.Button();
-            this.cmdSuppVehicule = new System.Windows.Forms.Button();
-            this.cmdGenerer = new System.Windows.Forms.Button();
             this.txtAeroNomMod = new System.Windows.Forms.TextBox();
             this.cmdCarteMod = new System.Windows.Forms.Button();
             this.txtMinMarchMod = new System.Windows.Forms.TextBox();
@@ -94,6 +89,12 @@
             this.txtVehNomMod = new System.Windows.Forms.TextBox();
             this.etqChargMod = new System.Windows.Forms.Label();
             this.etqLargMod = new System.Windows.Forms.Label();
+            this.lstAeroports = new System.Windows.Forms.ListBox();
+            this.lstVehicules = new System.Windows.Forms.ListBox();
+            this.cmdSuppAeroport = new System.Windows.Forms.Button();
+            this.cmdSuppVehicule = new System.Windows.Forms.Button();
+            this.cmdGenerer = new System.Windows.Forms.Button();
+            this.txtGenerer = new System.Windows.Forms.TextBox();
             this.tabGenerateur.SuspendLayout();
             this.ongAj.SuspendLayout();
             this.ongMod.SuspendLayout();
@@ -490,71 +491,6 @@
             this.ongMod.TabIndex = 1;
             this.ongMod.Text = "MODIFIER";
             // 
-            // lstAeroports
-            // 
-            this.lstAeroports.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lstAeroports.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstAeroports.FormattingEnabled = true;
-            this.lstAeroports.ItemHeight = 15;
-            this.lstAeroports.Location = new System.Drawing.Point(494, 12);
-            this.lstAeroports.Name = "lstAeroports";
-            this.lstAeroports.Size = new System.Drawing.Size(543, 197);
-            this.lstAeroports.TabIndex = 8;
-            this.lstAeroports.SelectedValueChanged += new System.EventHandler(this.lstAeroports_SelectedValueChanged);
-            // 
-            // lstVehicules
-            // 
-            this.lstVehicules.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lstVehicules.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstVehicules.FormattingEnabled = true;
-            this.lstVehicules.ItemHeight = 15;
-            this.lstVehicules.Location = new System.Drawing.Point(494, 257);
-            this.lstVehicules.Name = "lstVehicules";
-            this.lstVehicules.Size = new System.Drawing.Size(543, 197);
-            this.lstVehicules.TabIndex = 16;
-            this.lstVehicules.SelectedValueChanged += new System.EventHandler(this.lstVehicules_SelectedValueChanged);
-            // 
-            // cmdSuppAeroport
-            // 
-            this.cmdSuppAeroport.BackColor = System.Drawing.Color.Snow;
-            this.cmdSuppAeroport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdSuppAeroport.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdSuppAeroport.Location = new System.Drawing.Point(863, 215);
-            this.cmdSuppAeroport.Name = "cmdSuppAeroport";
-            this.cmdSuppAeroport.Size = new System.Drawing.Size(174, 23);
-            this.cmdSuppAeroport.TabIndex = 36;
-            this.cmdSuppAeroport.Text = "Supprimer un aéroport";
-            this.cmdSuppAeroport.UseVisualStyleBackColor = false;
-            this.cmdSuppAeroport.Click += new System.EventHandler(this.cmdSuppAeroport_Click);
-            // 
-            // cmdSuppVehicule
-            // 
-            this.cmdSuppVehicule.BackColor = System.Drawing.Color.Snow;
-            this.cmdSuppVehicule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdSuppVehicule.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdSuppVehicule.Location = new System.Drawing.Point(863, 460);
-            this.cmdSuppVehicule.Name = "cmdSuppVehicule";
-            this.cmdSuppVehicule.Size = new System.Drawing.Size(174, 23);
-            this.cmdSuppVehicule.TabIndex = 37;
-            this.cmdSuppVehicule.Text = "Supprimer un véhicule";
-            this.cmdSuppVehicule.UseVisualStyleBackColor = false;
-            this.cmdSuppVehicule.Click += new System.EventHandler(this.cmdSuppVehicule_Click);
-            // 
-            // cmdGenerer
-            // 
-            this.cmdGenerer.BackColor = System.Drawing.Color.Snow;
-            this.cmdGenerer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdGenerer.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdGenerer.Location = new System.Drawing.Point(22, 473);
-            this.cmdGenerer.Name = "cmdGenerer";
-            this.cmdGenerer.Size = new System.Drawing.Size(451, 31);
-            this.cmdGenerer.TabIndex = 36;
-            this.cmdGenerer.Text = "Générer le scénario";
-            this.cmdGenerer.UseVisualStyleBackColor = false;
-            this.cmdGenerer.MouseEnter += new System.EventHandler(this.cmdGenerer_MouseEnter);
-            this.cmdGenerer.MouseLeave += new System.EventHandler(this.cmdGenerer_MouseLeave);
-            this.cmdGenerer.MouseHover += new System.EventHandler(this.cmdGenerer_MouseHover);
-            // 
             // txtAeroNomMod
             // 
             this.txtAeroNomMod.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -858,12 +794,88 @@
             this.etqLargMod.Text = "Temps de largage :";
             this.etqLargMod.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // lstAeroports
+            // 
+            this.lstAeroports.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lstAeroports.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstAeroports.FormattingEnabled = true;
+            this.lstAeroports.ItemHeight = 15;
+            this.lstAeroports.Location = new System.Drawing.Point(494, 12);
+            this.lstAeroports.Name = "lstAeroports";
+            this.lstAeroports.Size = new System.Drawing.Size(543, 197);
+            this.lstAeroports.TabIndex = 8;
+            this.lstAeroports.SelectedValueChanged += new System.EventHandler(this.lstAeroports_SelectedValueChanged);
+            // 
+            // lstVehicules
+            // 
+            this.lstVehicules.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lstVehicules.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstVehicules.FormattingEnabled = true;
+            this.lstVehicules.ItemHeight = 15;
+            this.lstVehicules.Location = new System.Drawing.Point(494, 257);
+            this.lstVehicules.Name = "lstVehicules";
+            this.lstVehicules.Size = new System.Drawing.Size(543, 197);
+            this.lstVehicules.TabIndex = 16;
+            this.lstVehicules.SelectedValueChanged += new System.EventHandler(this.lstVehicules_SelectedValueChanged);
+            // 
+            // cmdSuppAeroport
+            // 
+            this.cmdSuppAeroport.BackColor = System.Drawing.Color.Snow;
+            this.cmdSuppAeroport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdSuppAeroport.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdSuppAeroport.Location = new System.Drawing.Point(863, 215);
+            this.cmdSuppAeroport.Name = "cmdSuppAeroport";
+            this.cmdSuppAeroport.Size = new System.Drawing.Size(174, 23);
+            this.cmdSuppAeroport.TabIndex = 36;
+            this.cmdSuppAeroport.Text = "Supprimer un aéroport";
+            this.cmdSuppAeroport.UseVisualStyleBackColor = false;
+            this.cmdSuppAeroport.Click += new System.EventHandler(this.cmdSuppAeroport_Click);
+            // 
+            // cmdSuppVehicule
+            // 
+            this.cmdSuppVehicule.BackColor = System.Drawing.Color.Snow;
+            this.cmdSuppVehicule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdSuppVehicule.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdSuppVehicule.Location = new System.Drawing.Point(863, 460);
+            this.cmdSuppVehicule.Name = "cmdSuppVehicule";
+            this.cmdSuppVehicule.Size = new System.Drawing.Size(174, 23);
+            this.cmdSuppVehicule.TabIndex = 37;
+            this.cmdSuppVehicule.Text = "Supprimer un véhicule";
+            this.cmdSuppVehicule.UseVisualStyleBackColor = false;
+            this.cmdSuppVehicule.Click += new System.EventHandler(this.cmdSuppVehicule_Click);
+            // 
+            // cmdGenerer
+            // 
+            this.cmdGenerer.BackColor = System.Drawing.Color.Snow;
+            this.cmdGenerer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdGenerer.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdGenerer.Location = new System.Drawing.Point(22, 484);
+            this.cmdGenerer.Name = "cmdGenerer";
+            this.cmdGenerer.Size = new System.Drawing.Size(451, 31);
+            this.cmdGenerer.TabIndex = 36;
+            this.cmdGenerer.Text = "Générer le scénario";
+            this.cmdGenerer.UseVisualStyleBackColor = false;
+            this.cmdGenerer.Click += new System.EventHandler(this.cmdGenerer_Click);
+            this.cmdGenerer.MouseEnter += new System.EventHandler(this.cmdGenerer_MouseEnter);
+            this.cmdGenerer.MouseLeave += new System.EventHandler(this.cmdGenerer_MouseLeave);
+            this.cmdGenerer.MouseHover += new System.EventHandler(this.cmdGenerer_MouseHover);
+            // 
+            // txtGenerer
+            // 
+            this.txtGenerer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtGenerer.Location = new System.Drawing.Point(22, 460);
+            this.txtGenerer.Name = "txtGenerer";
+            this.txtGenerer.Size = new System.Drawing.Size(451, 19);
+            this.txtGenerer.TabIndex = 38;
+            this.txtGenerer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGenerer_KeyPress);
+            // 
             // FormGenerateur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(1049, 527);
+            this.Controls.Add(this.txtGenerer);
             this.Controls.Add(this.cmdGenerer);
             this.Controls.Add(this.cmdSuppVehicule);
             this.Controls.Add(this.cmdSuppAeroport);
@@ -883,6 +895,7 @@
             this.ongMod.ResumeLayout(false);
             this.ongMod.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -953,6 +966,7 @@
         private System.Windows.Forms.TextBox txtVehNomMod;
         private System.Windows.Forms.Label etqChargMod;
         private System.Windows.Forms.Label etqLargMod;
+        private System.Windows.Forms.TextBox txtGenerer;
     }
 }
 

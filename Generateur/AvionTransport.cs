@@ -17,5 +17,20 @@ namespace Generateur
             m_tempsEmbarquement = p_tempsEmb;
             m_tempsDebarquement = p_tempsDeb;
         }
+
+        public AvionTransport() : base()
+        {
+
+        }
+
+        public int Embarquement
+        {
+            get { return m_tempsEmbarquement; }
+        }
+
+        public int Debarquement
+        {
+            get { return m_tempsDebarquement; }
+        }
     }
 }

@@ -51,5 +51,11 @@ namespace Generateur
 
             return vehicule;
         }
+
+        public Aeroport creerAeroport(string p_nom, int p_minPass, int p_maxPass, int p_minMarch, int p_maxMarch) //Créer un objet aéroport
+        {
+            Aeroport aeroport = new Aeroport(p_nom, p_minPass, p_maxPass, p_minMarch, p_maxMarch);
+            return aeroport;
+        }
     }
 }

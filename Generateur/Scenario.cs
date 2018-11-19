@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace Generateur
 {
+    [XmlRoot]
     public class Scenario
     {
         private List<Aeroport> m_aeroports; //Liste d'aéroports
@@ -13,6 +16,11 @@ namespace Generateur
         public Scenario() //Constructeur
         {
             m_aeroports = new List<Aeroport>();
+        }
+
+        public List<Aeroport> ListeAeroports
+        {
+            get { return m_aeroports; }
         }
 
         public string[] obtenirAeroports() //Obtenir tous les aéroports
@@ -35,7 +43,8 @@ namespace Generateur
 
         public void ajouterAeroport(string p_nom, int p_minPass, int p_maxPass, int p_minMarch, int p_maxMarch) //Ajouter un aéroport
         {
-            Aeroport aeroport = new Aeroport(p_nom, p_minPass, p_maxPass, p_minMarch, p_maxMarch);
+            Usine usine = Usine.obtenirUsine();
+            Aeroport aeroport = usine.creerAeroport(p_nom, p_minPass, p_maxPass, p_minMarch, p_maxMarch);
             m_aeroports.Add(aeroport);
         }
 
@@ -64,6 +73,17 @@ namespace Generateur
         public void supprimerVehicule(int p_aeroport, int p_vehicule) //Supprimer un véhicule
         {
             m_aeroports[p_aeroport].supprimerVehicule(p_vehicule);
+        }
+
+        public void genererScenario(string p_nom) //Générer le scénario
+        {
+            XmlSerializer xs = new XmlSerializer(typeof(Scenario));
+            string path = "..\\..\\..\\" + p_nom + ".txt";
+            using (StreamWriter sw = new StreamWriter(path))
+            {
+                xs.Serialize(sw, this);
+                sw.Close();
+            }
         }
     }
 }

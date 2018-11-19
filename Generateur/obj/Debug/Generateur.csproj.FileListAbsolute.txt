@@ -8,3 +8,13 @@ C:\Users\Laurie\Desktop\Generateur\Generateur\obj\Debug\Generateur.csproj.CoreCo
 C:\Users\Laurie\Desktop\Generateur\Generateur\obj\Debug\Generateur.exe
 C:\Users\Laurie\Desktop\Generateur\Generateur\obj\Debug\Generateur.pdb
 C:\Users\Laurie\Desktop\Generateur\Generateur\obj\Debug\Generateur.FormGenerateur.resources
+P:\Orienté objet\Generateur\Generateur\bin\Debug\Generateur.exe.config
+P:\Orienté objet\Generateur\Generateur\bin\Debug\Generateur.exe
+P:\Orienté objet\Generateur\Generateur\bin\Debug\Generateur.pdb
+P:\Orienté objet\Generateur\Generateur\obj\Debug\Generateur.csprojAssemblyReference.cache
+P:\Orienté objet\Generateur\Generateur\obj\Debug\Generateur.FormGenerateur.resources
+P:\Orienté objet\Generateur\Generateur\obj\Debug\Generateur.Properties.Resources.resources
+P:\Orienté objet\Generateur\Generateur\obj\Debug\Generateur.csproj.GenerateResource.cache
+P:\Orienté objet\Generateur\Generateur\obj\Debug\Generateur.csproj.CoreCompileInputs.cache
+P:\Orienté objet\Generateur\Generateur\obj\Debug\Generateur.exe
+P:\Orienté objet\Generateur\Generateur\obj\Debug\Generateur.pdb

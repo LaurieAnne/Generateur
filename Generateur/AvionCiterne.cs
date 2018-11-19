@@ -18,6 +18,21 @@ namespace Generateur
             m_tempsLargage = p_tempsLarg;
         }
 
+        public AvionCiterne() : base()
+        {
+
+        }
+
+        public int Chargement
+        {
+            get { return m_tempsChargement; }
+        }
+
+        public int Largage
+        {
+            get { return m_tempsLargage; }
+        }
+
         public override string ToString() //ToString
         {
             string vehicule;

@@ -14,6 +14,11 @@ namespace Generateur
 
         }
 
+        public AvionMarchandises() : base()
+        {
+
+        }
+
         public override string ToString() //ToString
         {
             string vehicule;

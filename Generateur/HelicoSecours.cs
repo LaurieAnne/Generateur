@@ -14,6 +14,11 @@ namespace Generateur
 
         }
 
+        public HelicoSecours() : base()
+        {
+
+        }
+
         public override string ToString() //ToString
         {
             string vehicule;

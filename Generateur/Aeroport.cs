@@ -18,13 +18,53 @@ namespace Generateur
 
         public Aeroport(string p_nom, int p_minPass, int p_maxPass, int p_minMarch, int p_maxMarch) //Constructeur
         {
-            m_nom = p_nom; 
-            m_minPassagers = p_minPass; 
+            m_nom = p_nom;
+            m_minPassagers = p_minPass;
             m_maxPassagers = p_maxPass;
             m_minMarchandises = p_minMarch;
             m_maxMarchandises = p_maxMarch;
             m_vehicules = new List<Vehicule>();
             m_pos = null;
+        }
+
+        public Aeroport()
+        {
+
+        }
+
+        public List<Vehicule> ListeVehicules
+        {
+            get { return m_vehicules; }
+        }
+
+        public string Nom
+        {
+            get { return m_nom; }
+        }
+
+        public int MinPass
+        {
+            get { return m_minPassagers; }
+        }
+
+        public int MaxPass
+        {
+            get { return m_maxPassagers; }
+        }
+
+        public int MinMarch
+        {
+            get { return m_minMarchandises; }
+        }
+
+        public int MaxMarch
+        {
+            get { return m_maxMarchandises; }
+        }
+
+        public PosCarte Pos
+        {
+            get { return m_pos; }
         }
 
         public override string ToString() //ToString

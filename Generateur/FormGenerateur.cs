@@ -545,5 +545,22 @@ namespace Generateur
                 MessageBox.Show("Aucun véhicule n'a été choisi.");
             }
         }
+
+        private void cmdGenerer_Click(object sender, EventArgs e) //Générer le scénario
+        {
+            if (txtGenerer.Text != "")
+            {
+                m_scenario.genererScenario(txtGenerer.Text);
+            }
+            else
+            {
+                MessageBox.Show("Vous devez entrer un nom.");
+            }
+        }
+
+        private void txtGenerer_KeyPress(object sender, KeyPressEventArgs e) //Ne pas accepter les points
+        {
+            e.Handled = e.KeyChar == '.';
+        }
     }
 }

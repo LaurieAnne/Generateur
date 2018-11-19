@@ -3,9 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Generateur
 {
+    [XmlInclude(typeof(AvionPassagers))]
+    [XmlInclude(typeof(AvionMarchandises))]
+    [XmlInclude(typeof(AvionObservateur))]
+    [XmlInclude(typeof(AvionCiterne))]
+    [XmlInclude(typeof(HelicoSecours))]
     public abstract class Vehicule
     {
         protected string m_nom; //Nom
@@ -19,6 +25,31 @@ namespace Generateur
             m_KMH = p_KMH;
             m_tempsMaintenance = p_tempsMain;
             m_couleur = p_couleur;
+        }
+
+        public Vehicule()
+        {
+
+        }
+
+        public string Nom
+        {
+            get { return m_nom; }
+        }
+
+        public int kMH
+        {
+            get { return m_KMH; }
+        }
+
+        public int Maintenance
+        {
+            get { return m_tempsMaintenance; }
+        }
+
+        public ConsoleColor Couleur
+        {
+            get { return m_couleur; }
         }
 
         public override string ToString() //ToString
