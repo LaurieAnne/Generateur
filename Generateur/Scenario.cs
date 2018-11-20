@@ -101,10 +101,27 @@ namespace Generateur
                 sw.Close();
             }
 
-            for (int i = 0; i < m_aeroports.Count; i++)
+            int nbAero = m_aeroports.Count;
+            for (int i = 0; i < nbAero; i++)
             {
                 m_aeroports.RemoveAt(0);
             }
+        }
+
+        public bool scenarioVide() //Vérifier si le scénario est suffisant
+        {
+            if (m_aeroports.Count < 2)
+            {
+                return true;
+            }
+            for (int i = 0; i < m_aeroports.Count; i++)
+            {
+                if (m_aeroports[i].ListeVehicules.Count == 0)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

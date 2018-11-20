@@ -576,25 +576,32 @@ namespace Generateur
         {
             if (txtGenerer.Text != "")
             {
-                m_scenario.genererScenario(txtGenerer.Text);
-                afficherAeroports();
-                foreach (Control c in Controls[5].Controls[0].Controls)
+                if (!m_scenario.scenarioVide())
                 {
-                    if (c is TextBox)
+                    m_scenario.genererScenario(txtGenerer.Text);
+                    afficherAeroports();
+                    foreach (Control c in Controls[5].Controls[0].Controls)
                     {
-                        ((TextBox)c).Text = "";
+                        if (c is TextBox)
+                        {
+                            ((TextBox)c).Text = "";
+                        }
                     }
+                    foreach (Control c in Controls[5].Controls[1].Controls)
+                    {
+                        if (c is TextBox)
+                        {
+                            ((TextBox)c).Text = "";
+                        }
+                    }
+                    txtGenerer.Text = "";
+                    cmbType.SelectedIndex = -1;
+                    cmbTypeMod.SelectedIndex = -1;
                 }
-                foreach (Control c in Controls[5].Controls[1].Controls)
+                else
                 {
-                    if (c is TextBox)
-                    {
-                        ((TextBox)c).Text = "";
-                    }
+                    MessageBox.Show("Le scénario ne contient pas au moins deux aéroports, ou un aéroport ne contient pas de véhicule.");
                 }
-                txtGenerer.Text = "";
-                cmbType.SelectedIndex = -1;
-                cmbTypeMod.SelectedIndex = -1;
             }
             else
             {
