@@ -52,6 +52,12 @@
     <Compile Include="AvionObservateur.cs" />
     <Compile Include="AvionPassagers.cs" />
     <Compile Include="AvionTransport.cs" />
+    <Compile Include="FormCarte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCarte.Designer.cs">
+      <DependentUpon>FormCarte.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormGenerateur.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +71,9 @@
     <Compile Include="Scenario.cs" />
     <Compile Include="Usine.cs" />
     <Compile Include="Vehicule.cs" />
+    <EmbeddedResource Include="FormCarte.resx">
+      <DependentUpon>FormCarte.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormGenerateur.resx">
       <DependentUpon>FormGenerateur.cs</DependentUpon>
     </EmbeddedResource>
@@ -93,6 +102,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="images\pin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\map.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

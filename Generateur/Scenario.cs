@@ -42,16 +42,24 @@ namespace Generateur
             return vehicules;
         }
 
-        public void ajouterAeroport(string p_nom, int p_minPass, int p_maxPass, int p_minMarch, int p_maxMarch) //Ajouter un aéroport
+        public void ajouterAeroport(string p_nom, int p_minPass, int p_maxPass, int p_minMarch, int p_maxMarch, int[] p_pos, int[] p_taille) //Ajouter un aéroport
         {
             Usine usine = Usine.obtenirUsine();
-            Aeroport aeroport = usine.creerAeroport(p_nom, p_minPass, p_maxPass, p_minMarch, p_maxMarch);
+            PosCarte pos = usine.creerPos(p_pos[0], p_pos[1], p_taille);
+            Aeroport aeroport = usine.creerAeroport(p_nom, p_minPass, p_maxPass, p_minMarch, p_maxMarch, pos);
             m_aeroports.Add(aeroport);
+        }
+
+        public void modifierAeroport(string p_nom, int p_minPass, int p_maxPass, int p_minMarch, int p_maxMarch, int p_aeroport, int[] p_pos, int[] p_taille) //Modifier un aéroport
+        {
+            Usine usine = Usine.obtenirUsine();
+            PosCarte pos = usine.creerPos(p_pos[0], p_pos[1], p_taille);
+            m_aeroports[p_aeroport].modifierAeroport(p_nom, p_minPass, p_maxPass, p_minMarch, p_maxMarch, pos);
         }
 
         public void modifierAeroport(string p_nom, int p_minPass, int p_maxPass, int p_minMarch, int p_maxMarch, int p_aeroport) //Modifier un aéroport
         {
-            m_aeroports[p_aeroport].modifierAeroport(p_nom, p_minPass, p_maxPass, p_minMarch, p_maxMarch);
+            m_aeroports[p_aeroport].modifierAeroport(p_nom, p_minPass, p_maxPass, p_minMarch, p_maxMarch, null);
         }
 
         public void supprimerAeroport(int p_aeroport) //Supprimer un aéroport
@@ -76,6 +84,13 @@ namespace Generateur
             m_aeroports[p_aeroport].supprimerVehicule(p_vehicule);
         }
 
+        public string obtenirCoord(int p_x, int p_y, int[] p_taille) //Obtenir les coordonnées
+        {
+            Usine usine = Usine.obtenirUsine();
+            PosCarte pos = usine.creerPos(p_x, p_y, p_taille);
+            return pos.ToString();
+        }
+
         public void genererScenario(string p_nom) //Générer le scénario
         {
             XmlSerializer xs = new XmlSerializer(typeof(Scenario));
@@ -84,6 +99,11 @@ namespace Generateur
             {
                 xs.Serialize(sw, this);
                 sw.Close();
+            }
+
+            for (int i = 0; i < m_aeroports.Count; i++)
+            {
+                m_aeroports.RemoveAt(0);
             }
         }
     }

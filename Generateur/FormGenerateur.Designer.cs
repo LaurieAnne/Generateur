@@ -56,12 +56,10 @@
             this.cmbType = new System.Windows.Forms.ComboBox();
             this.tabGenerateur = new System.Windows.Forms.TabControl();
             this.ongAj = new System.Windows.Forms.TabPage();
-            this.cmdCarte = new System.Windows.Forms.Button();
             this.etqCharg = new System.Windows.Forms.Label();
             this.etqLarg = new System.Windows.Forms.Label();
             this.ongMod = new System.Windows.Forms.TabPage();
             this.txtAeroNomMod = new System.Windows.Forms.TextBox();
-            this.cmdCarteMod = new System.Windows.Forms.Button();
             this.txtMinMarchMod = new System.Windows.Forms.TextBox();
             this.cmbTypeMod = new System.Windows.Forms.ComboBox();
             this.txtMaxPassMod = new System.Windows.Forms.TextBox();
@@ -95,6 +93,8 @@
             this.cmdSuppVehicule = new System.Windows.Forms.Button();
             this.cmdGenerer = new System.Windows.Forms.Button();
             this.txtGenerer = new System.Windows.Forms.TextBox();
+            this.cmdCarte = new System.Windows.Forms.Button();
+            this.cmdCarteMod = new System.Windows.Forms.Button();
             this.tabGenerateur.SuspendLayout();
             this.ongAj.SuspendLayout();
             this.ongMod.SuspendLayout();
@@ -422,16 +422,6 @@
             this.ongAj.TabIndex = 0;
             this.ongAj.Text = "AJOUTER";
             // 
-            // cmdCarte
-            // 
-            this.cmdCarte.BackgroundImage = global::Generateur.Properties.Resources.pin;
-            this.cmdCarte.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.cmdCarte.Location = new System.Drawing.Point(390, 120);
-            this.cmdCarte.Name = "cmdCarte";
-            this.cmdCarte.Size = new System.Drawing.Size(40, 40);
-            this.cmdCarte.TabIndex = 6;
-            this.cmdCarte.UseVisualStyleBackColor = true;
-            // 
             // etqCharg
             // 
             this.etqCharg.AutoSize = true;
@@ -456,7 +446,6 @@
             // 
             this.ongMod.BackColor = System.Drawing.Color.LightCyan;
             this.ongMod.Controls.Add(this.txtAeroNomMod);
-            this.ongMod.Controls.Add(this.cmdCarteMod);
             this.ongMod.Controls.Add(this.txtMinMarchMod);
             this.ongMod.Controls.Add(this.cmbTypeMod);
             this.ongMod.Controls.Add(this.txtMaxPassMod);
@@ -484,6 +473,7 @@
             this.ongMod.Controls.Add(this.txtVehNomMod);
             this.ongMod.Controls.Add(this.etqChargMod);
             this.ongMod.Controls.Add(this.etqLargMod);
+            this.ongMod.Controls.Add(this.cmdCarteMod);
             this.ongMod.Location = new System.Drawing.Point(4, 25);
             this.ongMod.Name = "ongMod";
             this.ongMod.Padding = new System.Windows.Forms.Padding(3);
@@ -500,16 +490,6 @@
             this.txtAeroNomMod.Size = new System.Drawing.Size(219, 19);
             this.txtAeroNomMod.TabIndex = 36;
             this.txtAeroNomMod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAeroNomMod_KeyPress);
-            // 
-            // cmdCarteMod
-            // 
-            this.cmdCarteMod.BackgroundImage = global::Generateur.Properties.Resources.pin;
-            this.cmdCarteMod.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.cmdCarteMod.Location = new System.Drawing.Point(390, 120);
-            this.cmdCarteMod.Name = "cmdCarteMod";
-            this.cmdCarteMod.Size = new System.Drawing.Size(40, 40);
-            this.cmdCarteMod.TabIndex = 41;
-            this.cmdCarteMod.UseVisualStyleBackColor = true;
             // 
             // txtMinMarchMod
             // 
@@ -868,6 +848,28 @@
             this.txtGenerer.Size = new System.Drawing.Size(451, 19);
             this.txtGenerer.TabIndex = 38;
             this.txtGenerer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGenerer_KeyPress);
+            // 
+            // cmdCarte
+            // 
+            this.cmdCarte.BackgroundImage = global::Generateur.Properties.Resources.pin;
+            this.cmdCarte.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cmdCarte.Location = new System.Drawing.Point(390, 120);
+            this.cmdCarte.Name = "cmdCarte";
+            this.cmdCarte.Size = new System.Drawing.Size(40, 40);
+            this.cmdCarte.TabIndex = 6;
+            this.cmdCarte.UseVisualStyleBackColor = true;
+            this.cmdCarte.Click += new System.EventHandler(this.cmdCarte_Click);
+            // 
+            // cmdCarteMod
+            // 
+            this.cmdCarteMod.BackgroundImage = global::Generateur.Properties.Resources.pin;
+            this.cmdCarteMod.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cmdCarteMod.Location = new System.Drawing.Point(390, 120);
+            this.cmdCarteMod.Name = "cmdCarteMod";
+            this.cmdCarteMod.Size = new System.Drawing.Size(40, 40);
+            this.cmdCarteMod.TabIndex = 41;
+            this.cmdCarteMod.UseVisualStyleBackColor = true;
+            this.cmdCarteMod.Click += new System.EventHandler(this.cmdCarteMod_Click);
             // 
             // FormGenerateur
             // 

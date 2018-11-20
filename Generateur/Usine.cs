@@ -52,10 +52,16 @@ namespace Generateur
             return vehicule;
         }
 
-        public Aeroport creerAeroport(string p_nom, int p_minPass, int p_maxPass, int p_minMarch, int p_maxMarch) //Créer un objet aéroport
+        public Aeroport creerAeroport(string p_nom, int p_minPass, int p_maxPass, int p_minMarch, int p_maxMarch, PosCarte p_pos) //Créer un objet aéroport
         {
-            Aeroport aeroport = new Aeroport(p_nom, p_minPass, p_maxPass, p_minMarch, p_maxMarch);
+            Aeroport aeroport = new Aeroport(p_nom, p_minPass, p_maxPass, p_minMarch, p_maxMarch, p_pos);
             return aeroport;
+        }
+
+        public PosCarte creerPos(int p_x, int p_y, int[] p_taille) //Créer un objet pos
+        {
+            PosCarte pos = new PosCarte(p_x, p_y, p_taille);
+            return pos;
         }
     }
 }

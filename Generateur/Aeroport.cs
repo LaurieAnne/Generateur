@@ -17,7 +17,7 @@ namespace Generateur
         private List<Vehicule> m_vehicules; //Liste de véhicules
         private PosCarte m_pos; //Emplacement de l'aéroport
 
-        public Aeroport(string p_nom, int p_minPass, int p_maxPass, int p_minMarch, int p_maxMarch) //Constructeur
+        public Aeroport(string p_nom, int p_minPass, int p_maxPass, int p_minMarch, int p_maxMarch, PosCarte p_pos) //Constructeur
         {
             m_nom = p_nom;
             m_minPassagers = p_minPass;
@@ -25,7 +25,7 @@ namespace Generateur
             m_minMarchandises = p_minMarch;
             m_maxMarchandises = p_maxMarch;
             m_vehicules = new List<Vehicule>();
-            m_pos = null;
+            m_pos = p_pos;
         }
 
         public Aeroport()
@@ -78,7 +78,8 @@ namespace Generateur
         public override string ToString() //ToString
         {
             string aeroport;
-            aeroport = m_nom + ", Min: " + m_minPassagers + ", Max: " + m_maxPassagers + ", Min: " + m_minMarchandises + ", Max: " + m_maxMarchandises;
+            string coord = m_pos.ToString();
+            aeroport = m_nom + " (" + coord + "), Min: " + m_minPassagers + ", Max: " + m_maxPassagers + ", Min: " + m_minMarchandises + ", Max: " + m_maxMarchandises;
             return aeroport;
         }
 
@@ -94,13 +95,17 @@ namespace Generateur
             return vehicules;
         }
 
-        public void modifierAeroport(string p_nom, int p_minPass, int p_maxPass, int p_minMarch, int p_maxMarch) //Modifier un aéroport
+        public void modifierAeroport(string p_nom, int p_minPass, int p_maxPass, int p_minMarch, int p_maxMarch, PosCarte p_pos) //Modifier un aéroport
         {
             m_nom = p_nom;
             m_minPassagers = p_minPass;
             m_maxPassagers = p_maxPass;
             m_minMarchandises = p_minMarch;
             m_maxMarchandises = p_maxMarch;
+            if (p_pos != null)
+            {
+                m_pos = p_pos;
+            }           
         }
 
         public void ajouterVehicule(Vehicule p_vehicule) //Ajouter un véhicule

@@ -18,3 +18,4 @@ P:\Orienté objet\Generateur\Generateur\obj\Debug\Generateur.csproj.GenerateReso
 P:\Orienté objet\Generateur\Generateur\obj\Debug\Generateur.csproj.CoreCompileInputs.cache
 P:\Orienté objet\Generateur\Generateur\obj\Debug\Generateur.exe
 P:\Orienté objet\Generateur\Generateur\obj\Debug\Generateur.pdb
+C:\Users\Laurie\Desktop\Generateur\Generateur\obj\Debug\Generateur.FormCarte.resources

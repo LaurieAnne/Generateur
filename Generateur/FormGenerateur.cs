@@ -104,16 +104,24 @@ namespace Generateur
 
         private void cmdAjAeroport_Click(object sender, EventArgs e) //Ajouter un aéroport
         {
-            if ((txtAeroNom.Text != "") && (txtMinPass.Text != "") && (txtMaxPass.Text != "") && (txtMinMarch.Text != "") && (txtMaxMarch.Text != ""))
+            if ((txtAeroNom.Text != "") && (txtMinPass.Text != "") && (txtMaxPass.Text != "") 
+                && (txtMinMarch.Text != "") && (txtMaxMarch.Text != "") && (txtPos.Text != ""))
             {
                 int minPass = Convert.ToInt32(txtMinPass.Text);
                 int maxPass = Convert.ToInt32(txtMaxPass.Text);
                 int minMarch = Convert.ToInt32(txtMinMarch.Text);
                 int maxMarch = Convert.ToInt32(txtMaxMarch.Text);
+                string[] coord = txtPos.Tag.ToString().Split(' ');
+                int[] pos = new int[2];
+                pos[0] = Convert.ToInt32(coord[0]);
+                pos[1] = Convert.ToInt32(coord[1]);
+                int[] taille = new int[2];
+                taille[0] = Convert.ToInt32(coord[2]);
+                taille[1] = Convert.ToInt32(coord[3]);
 
                 if ((maxPass > minPass) && (maxMarch > minMarch))
                 {
-                    m_scenario.ajouterAeroport(txtAeroNom.Text, minPass, maxPass, minMarch, maxMarch); //Ajouter
+                    m_scenario.ajouterAeroport(txtAeroNom.Text, minPass, maxPass, minMarch, maxMarch, pos, taille); //Ajouter
                     afficherAeroports();
                 }
                 else
@@ -200,7 +208,9 @@ namespace Generateur
             string texte = lstAeroports.Text; //Ligne de texte
             string[] infos = texte.Split(','); //Infos
 
-            txtAeroNomMod.Text = infos[0];
+            string[] nomCoord = infos[0].Split('(');
+            txtAeroNomMod.Text = nomCoord[0].Substring(0, nomCoord[0].Length - 1);
+            txtPosMod.Text = nomCoord[1].Substring(0, nomCoord[1].Length - 1);
             txtMinPassMod.Text = infos[1].Substring(infos[1].IndexOf(":") + 2);
             txtMaxPassMod.Text = infos[2].Substring(infos[2].IndexOf(":") + 2);
             txtMinMarchMod.Text = infos[3].Substring(infos[3].IndexOf(":") + 2);
@@ -213,6 +223,7 @@ namespace Generateur
 
             if (aeroport > -1)
             {
+                txtPosMod.Tag = "";
                 afficherVehicules();
                 afficherInfosAeroport();
             }
@@ -472,7 +483,8 @@ namespace Generateur
 
             if (aeroport > -1)
             {
-                if ((txtAeroNomMod.Text != "") && (txtMinPassMod.Text != "") && (txtMaxPassMod.Text != "") && (txtMinMarchMod.Text != "") && (txtMaxMarchMod.Text != ""))
+                if ((txtAeroNomMod.Text != "") && (txtMinPassMod.Text != "") && (txtMaxPassMod.Text != "") 
+                    && (txtMinMarchMod.Text != "") && (txtMaxMarchMod.Text != "") && (txtPosMod.Text != ""))
                 {
                     int minPass = Convert.ToInt32(txtMinPassMod.Text);
                     int maxPass = Convert.ToInt32(txtMaxPassMod.Text);
@@ -481,7 +493,21 @@ namespace Generateur
 
                     if ((maxPass > minPass) && (maxMarch > minMarch))
                     {
-                        m_scenario.modifierAeroport(txtAeroNomMod.Text, minPass, maxPass, minMarch, maxMarch, aeroport); //Modifier
+                        if (txtPosMod.Tag.ToString() != "") //Si la pos a été modifiée
+                        {
+                            string[] coord = txtPosMod.Tag.ToString().Split(' ');
+                            int[] pos = new int[2];
+                            pos[0] = Convert.ToInt32(coord[0]);
+                            pos[1] = Convert.ToInt32(coord[1]);
+                            int[] taille = new int[2];
+                            taille[0] = Convert.ToInt32(coord[2]);
+                            taille[1] = Convert.ToInt32(coord[3]);
+                            m_scenario.modifierAeroport(txtAeroNomMod.Text, minPass, maxPass, minMarch, maxMarch, aeroport, pos, taille); //Modifier
+                        }
+                        else
+                        {
+                            m_scenario.modifierAeroport(txtAeroNomMod.Text, minPass, maxPass, minMarch, maxMarch, aeroport); //Modifier
+                        }
                         afficherAeroports();
                         lstAeroports.SelectedIndex = aeroport;
                     }
@@ -551,6 +577,24 @@ namespace Generateur
             if (txtGenerer.Text != "")
             {
                 m_scenario.genererScenario(txtGenerer.Text);
+                afficherAeroports();
+                foreach (Control c in Controls[5].Controls[0].Controls)
+                {
+                    if (c is TextBox)
+                    {
+                        ((TextBox)c).Text = "";
+                    }
+                }
+                foreach (Control c in Controls[5].Controls[1].Controls)
+                {
+                    if (c is TextBox)
+                    {
+                        ((TextBox)c).Text = "";
+                    }
+                }
+                txtGenerer.Text = "";
+                cmbType.SelectedIndex = -1;
+                cmbTypeMod.SelectedIndex = -1;
             }
             else
             {
@@ -561,6 +605,34 @@ namespace Generateur
         private void txtGenerer_KeyPress(object sender, KeyPressEventArgs e) //Ne pas accepter les points
         {
             e.Handled = e.KeyChar == '.';
+        }
+
+        private void cmdCarte_Click(object sender, EventArgs e) //Choisir l'emplacement sur la carte
+        {
+            FormCarte carte = new FormCarte(this);
+            carte.ShowDialog();
+        }
+
+        private void cmdCarteMod_Click(object sender, EventArgs e) //Changer l'emplacement sur la carte
+        {
+            FormCarte carte = new FormCarte(this);
+            carte.ShowDialog(this);
+        }
+
+        public void afficherPos(int p_x, int p_y, int[] p_taille) //Afficher les coordonnées
+        {
+            string coord = m_scenario.obtenirCoord(p_x, p_y, p_taille); //Coordonnées en chaîne
+
+            if (tabGenerateur.SelectedIndex == 0) //Page ajouter
+            {
+                txtPos.Text = coord;
+                txtPos.Tag = p_x + " " + p_y + " " + p_taille[0] + " " + p_taille[1];
+            }
+            else //Page modifier
+            {
+                txtPosMod.Text = coord;
+                txtPosMod.Tag = p_x + " " + p_y + " " + p_taille[0] + " " + p_taille[1];
+            }
         }
     }
 }
