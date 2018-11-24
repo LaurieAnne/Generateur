@@ -11,8 +11,8 @@ namespace Generateur
         int m_tempsChargement; //Temps de chargement
         int m_tempsLargage; //Temps de largage
 
-        public AvionCiterne(string p_nom, int p_KMH, int p_tempsMain, int p_tempsCharg, int p_tempsLarg) //Constructeur
-            : base(p_nom, p_KMH, p_tempsMain, ConsoleColor.Yellow)
+        public AvionCiterne(string p_nom, int p_KMH, int p_tempsMain, int p_tempsCharg, int p_tempsLarg, Aeroport p_aeroport) //Constructeur
+            : base(p_nom, p_KMH, p_tempsMain, ConsoleColor.Yellow, p_aeroport)
         {
             m_tempsChargement = p_tempsCharg;
             m_tempsLargage = p_tempsLarg;

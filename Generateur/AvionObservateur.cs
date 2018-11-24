@@ -8,8 +8,8 @@ namespace Generateur
 {
     public class AvionObservateur : Vehicule
     {
-        public AvionObservateur(string p_nom, int p_KMH, int p_tempsMain) //Constructeur
-            : base(p_nom, p_KMH, p_tempsMain, ConsoleColor.Gray)
+        public AvionObservateur(string p_nom, int p_KMH, int p_tempsMain, Aeroport p_aeroport) //Constructeur
+            : base(p_nom, p_KMH, p_tempsMain, ConsoleColor.Gray, p_aeroport)
         {
 
         }

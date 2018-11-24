@@ -24,29 +24,29 @@ namespace Generateur
             return m_usine;
         }
 
-        public Vehicule creerVehicule(string p_nom, int[] p_params, int p_type) //Créer un objet véhicule
+        public Vehicule creerVehicule(string p_nom, int[] p_params, int p_type, Aeroport p_aeroport) //Créer un objet véhicule
         {
             Vehicule vehicule = null; //Véhicule
 
             if (p_type == 0)
             {
-                vehicule = new AvionObservateur(p_nom, p_params[0], p_params[1]);
+                vehicule = new AvionObservateur(p_nom, p_params[0], p_params[1], p_aeroport);
             }
             else if (p_type == 1)
             {
-                vehicule = new HelicoSecours(p_nom, p_params[0], p_params[1]);
+                vehicule = new HelicoSecours(p_nom, p_params[0], p_params[1], p_aeroport);
             }
             else if (p_type == 2)
             {
-                vehicule = new AvionPassagers(p_nom, p_params[0], p_params[1], p_params[2], p_params[3]); 
+                vehicule = new AvionPassagers(p_nom, p_params[0], p_params[1], p_params[2], p_params[3], p_aeroport); 
             }
             else if (p_type == 3)
             {
-                vehicule = new AvionMarchandises(p_nom, p_params[0], p_params[1], p_params[2], p_params[3]);
+                vehicule = new AvionMarchandises(p_nom, p_params[0], p_params[1], p_params[2], p_params[3], p_aeroport);
             }
             else if (p_type == 4)
             {
-                vehicule = new AvionCiterne(p_nom, p_params[0], p_params[1], p_params[2], p_params[3]); 
+                vehicule = new AvionCiterne(p_nom, p_params[0], p_params[1], p_params[2], p_params[3], p_aeroport); 
             }
 
             return vehicule;

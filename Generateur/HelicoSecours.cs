@@ -8,8 +8,8 @@ namespace Generateur
 {
     public class HelicoSecours : Vehicule
     {
-        public HelicoSecours(string p_nom, int p_KMH, int p_tempsMain) //Constructeur
-            : base(p_nom, p_KMH, p_tempsMain, ConsoleColor.Red)
+        public HelicoSecours(string p_nom, int p_KMH, int p_tempsMain, Aeroport p_aeroport) //Constructeur
+            : base(p_nom, p_KMH, p_tempsMain, ConsoleColor.Red, p_aeroport)
         {
 
         }

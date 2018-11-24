@@ -18,13 +18,15 @@ namespace Generateur
         protected int m_KMH; //Le nombre de KM à l'heure
         protected int m_tempsMaintenance; //Temps de maintenance
         protected ConsoleColor m_couleur; //Couleur
+        protected PosCarte m_posActuelle; //La position ou il est
 
-        public Vehicule(string p_nom, int p_KMH, int p_tempsMain, ConsoleColor p_couleur) //Constructeur
+        public Vehicule(string p_nom, int p_KMH, int p_tempsMain, ConsoleColor p_couleur, Aeroport p_aeroport) //Constructeur
         {
             m_nom = p_nom;
             m_KMH = p_KMH;
             m_tempsMaintenance = p_tempsMain;
             m_couleur = p_couleur;
+            m_posActuelle = p_aeroport.Pos;
         }
 
         public Vehicule()
@@ -54,6 +56,12 @@ namespace Generateur
         {
             get { return m_couleur; }
             set { m_couleur = value; }
+        }
+
+        public PosCarte PositionCarte
+        {
+            get { return m_posActuelle; }
+            set { m_posActuelle = value; }
         }
 
         public override string ToString() //ToString
