@@ -70,7 +70,7 @@ namespace Generateur
         public void ajouterVehicule(string p_nom, int[] p_params, int p_type, int p_aeroport) //Ajouter un véhicule
         {
             Usine usine = Usine.obtenirUsine();
-            Vehicule vehicule = usine.creerVehicule(p_nom, p_params, p_type, m_aeroports[p_aeroport]);
+            Vehicule vehicule = usine.creerVehicule(p_nom, p_params, p_type, m_aeroports[p_aeroport].Pos);
             m_aeroports[p_aeroport].ajouterVehicule(vehicule);
         }
 

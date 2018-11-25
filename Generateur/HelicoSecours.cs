@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,8 +9,8 @@ namespace Generateur
 {
     public class HelicoSecours : Vehicule
     {
-        public HelicoSecours(string p_nom, int p_KMH, int p_tempsMain, Aeroport p_aeroport) //Constructeur
-            : base(p_nom, p_KMH, p_tempsMain, ConsoleColor.Red, p_aeroport)
+        public HelicoSecours(string p_nom, int p_KMH, int p_tempsMain, PosCarte p_posAeroport) //Constructeur
+            : base(p_nom, p_KMH, p_tempsMain, Color.Red, p_posAeroport)
         {
 
         }

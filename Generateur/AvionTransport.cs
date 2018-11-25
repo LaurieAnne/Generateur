@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,8 +12,8 @@ namespace Generateur
         protected int m_tempsEmbarquement; //Temps d'embarquement
         protected int m_tempsDebarquement; //Temps de débarquement
 
-        public AvionTransport(string p_nom, int p_KMH, int p_tempsMain, int p_tempsEmb, int p_tempsDeb, ConsoleColor p_couleur, Aeroport p_aeroport) //Constructeur
-            : base(p_nom, p_KMH, p_tempsMain, p_couleur, p_aeroport)
+        public AvionTransport(string p_nom, int p_KMH, int p_tempsMain, int p_tempsEmb, int p_tempsDeb, Color p_couleur, PosCarte p_posAeroport) //Constructeur
+            : base(p_nom, p_KMH, p_tempsMain, p_couleur, p_posAeroport)
         {
             m_tempsEmbarquement = p_tempsEmb;
             m_tempsDebarquement = p_tempsDeb;
