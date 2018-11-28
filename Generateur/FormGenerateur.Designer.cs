@@ -56,6 +56,7 @@
             this.cmbType = new System.Windows.Forms.ComboBox();
             this.tabGenerateur = new System.Windows.Forms.TabControl();
             this.ongAj = new System.Windows.Forms.TabPage();
+            this.cmdCarte = new System.Windows.Forms.Button();
             this.etqCharg = new System.Windows.Forms.Label();
             this.etqLarg = new System.Windows.Forms.Label();
             this.ongMod = new System.Windows.Forms.TabPage();
@@ -87,14 +88,13 @@
             this.txtVehNomMod = new System.Windows.Forms.TextBox();
             this.etqChargMod = new System.Windows.Forms.Label();
             this.etqLargMod = new System.Windows.Forms.Label();
+            this.cmdCarteMod = new System.Windows.Forms.Button();
             this.lstAeroports = new System.Windows.Forms.ListBox();
             this.lstVehicules = new System.Windows.Forms.ListBox();
             this.cmdSuppAeroport = new System.Windows.Forms.Button();
             this.cmdSuppVehicule = new System.Windows.Forms.Button();
             this.cmdGenerer = new System.Windows.Forms.Button();
             this.txtGenerer = new System.Windows.Forms.TextBox();
-            this.cmdCarte = new System.Windows.Forms.Button();
-            this.cmdCarteMod = new System.Windows.Forms.Button();
             this.tabGenerateur.SuspendLayout();
             this.ongAj.SuspendLayout();
             this.ongMod.SuspendLayout();
@@ -239,11 +239,11 @@
             // etqMaint
             // 
             this.etqMaint.AutoSize = true;
-            this.etqMaint.Location = new System.Drawing.Point(36, 291);
+            this.etqMaint.Location = new System.Drawing.Point(3, 290);
             this.etqMaint.Name = "etqMaint";
-            this.etqMaint.Size = new System.Drawing.Size(123, 14);
+            this.etqMaint.Size = new System.Drawing.Size(156, 14);
             this.etqMaint.TabIndex = 31;
-            this.etqMaint.Text = "Temps de maintenance :";
+            this.etqMaint.Text = "Temps de maintenance (mins) :";
             this.etqMaint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtMaint
@@ -259,31 +259,31 @@
             // etqDeb
             // 
             this.etqDeb.AutoSize = true;
-            this.etqDeb.Location = new System.Drawing.Point(28, 341);
+            this.etqDeb.Location = new System.Drawing.Point(10, 340);
             this.etqDeb.Name = "etqDeb";
-            this.etqDeb.Size = new System.Drawing.Size(131, 14);
+            this.etqDeb.Size = new System.Drawing.Size(149, 14);
             this.etqDeb.TabIndex = 29;
-            this.etqDeb.Text = "Temps de débarquement :";
+            this.etqDeb.Text = "Temps débarquement (mins) :";
             this.etqDeb.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // etqEmb
             // 
             this.etqEmb.AutoSize = true;
-            this.etqEmb.Location = new System.Drawing.Point(33, 316);
+            this.etqEmb.Location = new System.Drawing.Point(8, 315);
             this.etqEmb.Name = "etqEmb";
-            this.etqEmb.Size = new System.Drawing.Size(126, 14);
+            this.etqEmb.Size = new System.Drawing.Size(151, 14);
             this.etqEmb.TabIndex = 28;
-            this.etqEmb.Text = "Temps d\'embarquement :";
+            this.etqEmb.Text = "Temps embarquement (mins) :";
             this.etqEmb.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // etqKMH
             // 
             this.etqKMH.AutoSize = true;
-            this.etqKMH.Location = new System.Drawing.Point(121, 266);
+            this.etqKMH.Location = new System.Drawing.Point(80, 265);
             this.etqKMH.Name = "etqKMH";
-            this.etqKMH.Size = new System.Drawing.Size(38, 14);
+            this.etqKMH.Size = new System.Drawing.Size(79, 14);
             this.etqKMH.TabIndex = 27;
-            this.etqKMH.Text = "KM/H :";
+            this.etqKMH.Text = "KM/H (1 à 10) :";
             this.etqKMH.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // etqType
@@ -422,24 +422,35 @@
             this.ongAj.TabIndex = 0;
             this.ongAj.Text = "AJOUTER";
             // 
+            // cmdCarte
+            // 
+            this.cmdCarte.BackgroundImage = global::Generateur.Properties.Resources.pin;
+            this.cmdCarte.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cmdCarte.Location = new System.Drawing.Point(390, 120);
+            this.cmdCarte.Name = "cmdCarte";
+            this.cmdCarte.Size = new System.Drawing.Size(40, 40);
+            this.cmdCarte.TabIndex = 6;
+            this.cmdCarte.UseVisualStyleBackColor = true;
+            this.cmdCarte.Click += new System.EventHandler(this.cmdCarte_Click);
+            // 
             // etqCharg
             // 
             this.etqCharg.AutoSize = true;
-            this.etqCharg.Location = new System.Drawing.Point(40, 316);
+            this.etqCharg.Location = new System.Drawing.Point(7, 315);
             this.etqCharg.Name = "etqCharg";
-            this.etqCharg.Size = new System.Drawing.Size(119, 14);
+            this.etqCharg.Size = new System.Drawing.Size(152, 14);
             this.etqCharg.TabIndex = 34;
-            this.etqCharg.Text = "Temps de chargement :";
+            this.etqCharg.Text = "Temps de chargement (mins) :";
             this.etqCharg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // etqLarg
             // 
             this.etqLarg.AutoSize = true;
-            this.etqLarg.Location = new System.Drawing.Point(61, 341);
+            this.etqLarg.Location = new System.Drawing.Point(28, 340);
             this.etqLarg.Name = "etqLarg";
-            this.etqLarg.Size = new System.Drawing.Size(98, 14);
+            this.etqLarg.Size = new System.Drawing.Size(131, 14);
             this.etqLarg.TabIndex = 35;
-            this.etqLarg.Text = "Temps de largage :";
+            this.etqLarg.Text = "Temps de largage (mins) :";
             this.etqLarg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // ongMod
@@ -774,6 +785,17 @@
             this.etqLargMod.Text = "Temps de largage :";
             this.etqLargMod.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // cmdCarteMod
+            // 
+            this.cmdCarteMod.BackgroundImage = global::Generateur.Properties.Resources.pin;
+            this.cmdCarteMod.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cmdCarteMod.Location = new System.Drawing.Point(390, 120);
+            this.cmdCarteMod.Name = "cmdCarteMod";
+            this.cmdCarteMod.Size = new System.Drawing.Size(40, 40);
+            this.cmdCarteMod.TabIndex = 41;
+            this.cmdCarteMod.UseVisualStyleBackColor = true;
+            this.cmdCarteMod.Click += new System.EventHandler(this.cmdCarteMod_Click);
+            // 
             // lstAeroports
             // 
             this.lstAeroports.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -848,28 +870,6 @@
             this.txtGenerer.Size = new System.Drawing.Size(451, 19);
             this.txtGenerer.TabIndex = 38;
             this.txtGenerer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGenerer_KeyPress);
-            // 
-            // cmdCarte
-            // 
-            this.cmdCarte.BackgroundImage = global::Generateur.Properties.Resources.pin;
-            this.cmdCarte.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.cmdCarte.Location = new System.Drawing.Point(390, 120);
-            this.cmdCarte.Name = "cmdCarte";
-            this.cmdCarte.Size = new System.Drawing.Size(40, 40);
-            this.cmdCarte.TabIndex = 6;
-            this.cmdCarte.UseVisualStyleBackColor = true;
-            this.cmdCarte.Click += new System.EventHandler(this.cmdCarte_Click);
-            // 
-            // cmdCarteMod
-            // 
-            this.cmdCarteMod.BackgroundImage = global::Generateur.Properties.Resources.pin;
-            this.cmdCarteMod.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.cmdCarteMod.Location = new System.Drawing.Point(390, 120);
-            this.cmdCarteMod.Name = "cmdCarteMod";
-            this.cmdCarteMod.Size = new System.Drawing.Size(40, 40);
-            this.cmdCarteMod.TabIndex = 41;
-            this.cmdCarteMod.UseVisualStyleBackColor = true;
-            this.cmdCarteMod.Click += new System.EventHandler(this.cmdCarteMod_Click);
             // 
             // FormGenerateur
             // 
